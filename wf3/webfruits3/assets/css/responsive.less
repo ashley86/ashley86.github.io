@@ -11,25 +11,39 @@
 @media (max-width:550px) {
     header {
         .row {
-            h2 {
-                transform: translate(-50%, 0);
+            &:first-child {
+                h2 {
+                    position: static;
+                    transform: translate(0);
+                }
             }
         }
     }
 }
 
 @media (max-width:992px) {
-    header .navbar .navbar-collapse .nav.navbar-right {
-        margin: auto;
-    }
-    main {
-        section {
-            figure {
-                margin: 0;
-                .thumbnail {
-                    width: 100%;
+    html body {
+        header .navbar .navbar-collapse .nav.navbar-right {
+            margin: auto;
+        }
+        main {
+            section {
+                figure {
+                    margin: 0;
+                    .thumbnail {
+                        width: 100%;
+                    }
                 }
             }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    html body {
+        padding-top: 0;
+        .accessibility {
+            top: 0;
         }
     }
 }
