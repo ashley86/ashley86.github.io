@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Achetez mes beaux fruits" />
+    <link rel="icon" href="favicon.ico" />
+    <title>WebFruits 3</title>
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" />
+    <link href="assets/css/styles.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="accessibility">
+        <div class="container">
+            <div class="row">
+                <ul>
+                    <li>
+                        <button class="dislexic">Dislexie</button>
+                    </li>
+                    <li>
+                        <button class="contrast">Contraste</button>
+                    </li>
+                    <li class="decrease-font font-resize">
+                        <button id="decreaseFont" title="Réduire le texte" class="decrease-font-btn btn-rst">A-</button>
+                    </li>
+                    <li class="reset-font font-resize">
+                        <button id="resetFont" title="Taille du texte normale (activé)" class="reset-font-btn btn-rst">A</button>
+                    </li>
+                    <li class="increase-font font-resize">
+                        <button id="increaseFont" title="Agrandir le texte" class="increase-font-btn btn-rst">A+</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="page">
+        <!-- Header -->
+        <header class="text-center">
+            <div class="row">
+                <h1>WebFruits <sup>3</sup></h1>
+                <h2>Des fruits, du web, le tout <strong>PUISSANCE 3</strong></h2> </div>
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <!-- Burger menu -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-principal" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-principal">
+                        <ul class="nav navbar-nav">
+                            <li class=active><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><span class="sr-only">Accueil</span></a></li>
+                            <li><a href="#">Présentation</a></li>
+                            <li><a href="#">Produits</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" id="flags">
+                            <li class="flag flag-fr"><a href="#" title="Français" lang="fr"><span class="sr-only">Français</span></a></li>
+                            <li class="flag flag-gb"><a href="#" title="English" lang="en"><span class="sr-only">English</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+        </header>
+        <!-- /Header -->
+        <!-- Main -->
+        <main>
+            <div class="row">
+                <section class="col-xs-12">
+                    <h3 class="text-center">Découvrez notre collection <span>P</span>rintemps / <span>É</span>té</h3>
+                    <figure class="text-center col-md-4 col-sm-6">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/ananas.jpg" class="img-responsive" alt="Costume ananas" /></button>
+                        <figcaption>Ananas</figcaption>
+                    </figure>
+                    <figure class="text-center col-md-4 col-sm-6">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/banane.jpg" class="img-responsive" alt="Costume banane" /></button>
+                        <figcaption>Banane</figcaption>
+                    </figure>
+                    <figure class="text-center col-md-4 col-sm-6">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/fraise.jpg" class="img-responsive" alt="Costume fraise" /></button>
+                        <figcaption>Fraise</figcaption>
+                    </figure>
+                    <figure class="text-center col-md-3 col-sm-6">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/kiwi.jpg" class="img-responsive" alt="Costume kiwi" /></button>
+                        <figcaption>Kiwi</figcaption>
+                    </figure>
+                    <figure class="text-center col-md-3 col-sm-6">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/mangue.jpg" class="img-responsive" alt="Costume mangue" /></button>
+                        <figcaption>Mangue</figcaption>
+                    </figure>
+                    <figure class="text-center col-md-3 col-sm-6">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/pomme.jpg" class="img-responsive" alt="Costume pomme" /></button>
+                        <figcaption>Pomme</figcaption>
+                    </figure>
+                    <figure class="text-center col-md-3">
+                        <button class="thumbnail"> <img src="assets/img/fruits/th/raisin.jpg" class="img-responsive" alt="Costume raisin" /></button>
+                        <figcaption>Raisin</figcaption>
+                    </figure>
+                </section>
+            </div>
+        </main>
+        <!-- /Main -->
+        <footer>
+            <div class="row">
+                <nav class="text-center">
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">C.G.V.</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </div>
+    <!-- /#page -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row text-center">
+                &copy; Copyright 2016 - Ashley Ramtohul
+            </div>
+        </div>
+    </div>
+    <div class="bg"></div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
