@@ -1,0 +1,120 @@
+// main: main.less
+
+  /*--------------------------------------/
+ // Contient les adaptations responsive //
+/*-------------------------------------*/
+
+html {
+
+    // Pour les écrans plus petit que 992px et plus grand que 768px
+    @media (max-width: @screen-size-medium ) {
+        body {
+            padding: 0 15px;
+
+            main {
+                margin-top: 8rem;
+
+                .container {
+                    .contact {
+                        & > div {
+
+                            width: 50%;
+
+                            &.gmap {
+                                width: 100%;
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footbar {
+                text-align: center;
+                padding: 0;
+            }
+        }
+    }
+
+
+    // Pour les écrans plus petit que 768px
+    @media (max-width: @screen-size-small ) {
+        body {
+            padding: 0 15px;
+
+            &.main-menu-open {
+                main {
+                    margin-top: 18rem;
+                }
+
+                nav.main-menu {
+                    ul {
+                        display: block !important;
+                    }
+                }
+            }
+
+            .topbar {
+
+                .brand {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                nav.main-menu {
+
+                    float: none;
+                    display: block;
+
+                    .burger {
+                        display: inline-block;
+                        position: absolute;
+                        top:0;
+                        right: 10px;
+                        span {
+                            text-indent: -10000px;
+                            display: none;
+                        }
+                    }
+
+                    ul {
+                        display: none;
+                        li {
+                            width: 100%;
+                            text-align: center;
+
+                            a {
+                                line-height: 3.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            main {
+
+                .container {
+
+                    .guest-unicorn {
+                        li {
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .contact {
+                        & > div {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .footbar {
+                text-align: center;
+                padding: 0;
+            }
+        }
+    }
+}

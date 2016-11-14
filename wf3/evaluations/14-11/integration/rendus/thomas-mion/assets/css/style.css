@@ -1,0 +1,332 @@
+/*
+	MyUnicorn v0.1
+														 Style débuté le : 14/11/2016
+												Dernière modification le : 24/11/2016
+																 Auteur : MION Thomas
+*/
+
+body {
+	font-family: "Arial", sans-serif;
+}
+
+h1, h2, h3 {
+	font-family: 'Courgette', cursive, sans-serif;
+}
+
+@media only screen and (max-width : 992px) {
+	h1, h2, h3 {
+		text-align: center;
+	}
+}
+
+/* --- Start : En-tête --- */
+
+header {
+	float: left;
+
+	width: 100%;
+	min-height: 60px;
+	height: auto;
+
+	background-color: #C55394;
+
+	line-height: 60px;
+}
+
+	header p {
+		float: left;
+
+		padding-left: 20px;
+
+		color: #fff;
+		font-family: 'Courgette', cursive, sans-serif;
+		font-size: 20px;
+	}
+
+	/* Start : Navigation */
+	header nav {
+		float: right;
+	}
+
+	header nav ul {
+		width: 100%;
+		height: auto;
+	}
+
+	header nav ul li {
+		display: inline-block;
+	}
+
+	header nav ul li a {
+		display: block;
+
+		width: 100%;
+		height: 60px;
+
+		padding: 0 20px;
+
+		color: #fff;
+		text-transform: uppercase;
+
+		transition: background 0.5s ease;
+	}
+
+	header nav ul li a:hover {
+		background-color: #EB43A3;
+
+		color: #fff;
+		text-decoration: none;
+	}
+
+	header nav ul li a:focus {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	/* Navigation sur les petits écrans */
+	@media only screen and (max-width : 992px) {
+		header p, header nav {
+			float: none; /* On va passer en "burger-menu", on retire donc nos floats et on aligne le texte au centre*/
+
+			padding: 0;
+
+			text-align: center;
+		}
+
+		header nav ul {
+
+		}
+
+		header nav ul li {
+			display: block;
+
+			text-align: center;
+		}
+
+		header nav ul li a {
+			border-top: 1px solid #a5276f;
+		}
+
+		header nav ul li:last-child a {
+			border-bottom: 2px solid #a5276f;
+		}
+	}
+	/* End : Navigation; */
+
+/* --- End : En-tête --- */
+
+
+/* --- Start : Contenu principal --- */
+
+main {
+	float: left;
+
+	width: 100%;
+	height: auto;
+
+	padding-bottom: 50px;
+
+	background: url("../img/background.png");
+}
+
+	/* Start : Arc-en-ciel et titre principal */
+	.rainbow-wrapper {
+		max-width: 600px;
+		width: 100%;
+		height: 180px;
+
+		background: url("../img/rainbow.png") no-repeat top center;
+
+		margin: 30px auto 0 auto;
+	}
+
+	h1 {
+		margin: 0;
+		padding: 0;
+		padding-top: 80px;
+
+		color: #C55394;
+		text-align: center;
+	}
+	/* End : Arc-en-ciel et titre principal */
+
+	/* Start : Contenu */
+	section {
+		position: relative;
+		top: -40px; /* On colle la section à l'arc-en-ciel qui sert de titre */
+
+		width: 100%;
+		max-width: 1350px;
+		height: auto;
+
+		margin: 0 auto;
+		padding: 30px 20px;
+		padding-top: 0;
+
+		background: #fff;
+		border-radius: 10px;
+
+		box-shadow: 0 0 15px #848484;
+	}
+
+	@media only screen and (max-width : 1360px) {
+		section {
+			border-radius: 0; /* On retire les bordures arrondies sur les petites résolutions, quand la section prend toute la largeur */
+		}
+	}
+
+	section h2, section h3 {
+		color: #EB43A3;
+	}
+
+	section h2 {
+		margin-bottom: 20px;
+		padding-top: 50px;
+	}
+
+	section .row {
+		margin: 0 auto;
+	}
+
+	/* Start : Présentation des licornes */
+	section  #noslicornes .row {
+		text-align: center; /* pour centrer les images */
+	}
+
+	section .row .unicorn {
+		position: relative;
+
+		display: inline-block; /* le display et le overflow servent à aggrandir l'image au survol de la souris sans pour autant changer ses dimensions */
+		overflow: hidden;
+
+		text-align: center;
+	}
+
+	@media only screen and (max-width : 992px) {
+		section .row .unicorn {
+			margin: 10px auto; /* On ajoute un écart entre les images quand elles passent en colonne, les unes au-dessus des autres */
+		}
+	}
+
+	section .row .unicorn img {
+		transition: transform 0.5s ease;
+	}
+
+	section .row .unicorn:hover img {
+	    transform: scale(1.3);
+	}
+
+	section .row .unicorn figcaption {
+		position: absolute;
+		bottom: 0;
+
+		width: 100%;
+		max-width: 300px;
+		height: 35px;
+
+		margin: 0 auto;
+
+		background-color: rgba(0,0,0,0.8);
+
+		color: #fff;
+		line-height: 35px;
+		text-align: center;
+
+		transition: background 0.5s ease;
+	}
+
+	section .row .unicorn:hover figcaption {
+		background-color: rgba(197,83,148,0.8);
+	}
+	/* End : Présentation des licornes */
+
+	/* Start : Nous trouver */
+	section .googlemap iframe {
+		width: 100%;
+	}
+
+	section .adresse a {
+		color: #000;
+	}
+
+	section .adresse a:hover {
+		text-decoration: none;
+	}
+
+	section .newsletter {
+		margin: 0 auto;
+	}
+
+	section .newsletter h3 {
+		padding-top: 30px;
+	}
+
+	section .newsletter form label {
+		font-weight: normal;
+	}
+
+	section .newsletter input[type="email"] {
+		width: 215px;
+
+		padding: 10px;
+	}
+
+	section .newsletter input[type="submit"] {
+		margin-top: 10px;
+		padding: 10px 20px;
+
+		background-color: #C55394;
+		border: none;
+		border-radius: 5px;
+
+		color: #fff;
+
+		transition: all 0.2s ease-out;
+	}
+
+	section .newsletter input[type="submit"]:hover {
+		background-color: #b86996;
+		border-radius: 10px;
+	}
+
+	@media only screen and (max-width : 992px) { /* Toujours pour le confort sur les petites résolutions, on aligne le texte au centre */
+		section .adresse,
+		section .newsletter {
+			text-align: center;
+		}
+	}
+	/* End : Où nous trouver */
+
+/* --- End : Contenu principal --- */
+
+/* --- Start : Pied de page --- */
+
+footer {
+	float: left;
+
+	width: 100%;
+	height: 60px;
+
+	background-color: #C55394;
+
+	line-height: 60px;
+}
+
+footer p {
+	float: right;
+
+	margin: 0;
+	padding: 0 10px;
+
+	color: #fff;
+}
+
+/* --- End : Pied de page --- */
+
+/* Classes passe-partout pour retirer les marges extérieures et intérieures */
+.r-m {
+	margin: 0;
+}
+.r-p {
+	padding: 0;
+}

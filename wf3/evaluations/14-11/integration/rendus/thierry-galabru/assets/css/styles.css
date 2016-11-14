@@ -1,0 +1,155 @@
+                                      /*mon haut de page  = header*/
+header {
+	width: 100%;
+    height: 50px;
+	background-color: #C55394;
+}
+
+header p {
+	font-family: cursive, sans-serif;
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+	color: white;
+	font-size: 20px;
+    text-transform: capitalize;
+    margin-top: 3px;
+
+}
+
+header ul li {
+    display: block;
+	float:right;
+
+}
+
+header ul li a {
+	display:block;
+	text-align:center;
+	text-decoration: none;
+	color:white;
+	text-transform: uppercase;
+	margin-right: 15px;
+	padding-top: 15px;
+
+
+	font-family: Arial, sans-serif;
+
+}
+
+header ul li a:hover {
+
+	 color : #EB43A3;
+	 }
+
+                         /* fin header*/
+
+   /* commencement main = fond de page */
+
+   .fondPage {
+   	width: 100%;
+   	height: 1450px;
+    background-image: url(../img/background.png);
+   }
+
+    h1 {
+   	color: #C55394;
+    text-align:center;
+    padding-top: 100px;
+    font-family: cursive, sans-serif;
+}
+
+   /*commencement de la section qui comprend le texte et les images*/
+
+   section {
+    width: 75%;
+   height: auto;
+   margin-left: 300px;
+   background-color: white;
+   float: left;
+   border-radius: 10px;
+   box-shadow: 2px 2px 2px 2px  #C55394;
+
+    }
+    section ul li  {
+    display: block;
+    margin-top: 30px;
+    }
+
+
+    section ul li a {
+
+    font-family:  cursive, sans-serif;
+    color: #C55394;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    }
+
+
+                 /* i = les étoiles de font awesome*/
+    i {
+    	margin-right: 12px;
+    	color: #EB43A3;
+    }
+
+    .container {
+    margin-top: 30px;
+
+    }
+
+    img {
+    float: left;
+    margin-right: 15px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    }
+
+          /*fin de la section qui comprend le texte et les images*/
+
+          /* début de la div adresse qui contient la carte et les adresses*/
+
+    .gmap {
+
+      float: left;
+      width: 800px;
+    height: 550px;
+    float: left;
+    margin-left: 50px;
+    }
+
+
+    .adresse {
+    margin-left: -70px;
+    width: 500px;
+    float: left;
+    }
+
+    .adresse h3 {
+    color: #C55394;
+    font-family: cursive, sans-serif;
+
+    }
+    .adresse a {
+    display: block;
+    color:white;
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    padding-top: 15px;
+    font-family: cursive;
+    margin-top: 20px;
+    }
+               /* fin div adresse */
+
+               /*début footer = bandeau rose*/
+
+
+footer  {
+  width: 100%;
+    height: 50px;
+  background-color: #C55394;
+}

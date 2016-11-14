@@ -1,0 +1,221 @@
+/* ########################### */
+/* ######### General ######### */
+/* ########################### */
+
+body {
+	font-family: arial, sans-serif;
+	margin:0;
+	padding:0;
+}
+a, p, h1, ul, li {
+	margin:0;
+	padding: 0;
+}
+
+
+/* ########################### */
+/* #########  Header  ######## */
+/* ########################### */
+
+header {
+	float: left;
+	width:100%;
+	height:50px;
+	background-color: #C55394
+}
+
+/* #########  Header : nom du site ######## */
+header .logo {
+	width: 50%;
+	float: left;
+}
+
+header .logo a {
+	font-family: 'Courgette', cursive;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 50px;
+	padding-left: 20px;
+	text-decoration: none;
+}
+
+/* #########  Header : menu barre  ######## */
+
+.menu {
+	width: 50%;
+	float:left;
+}
+.menu ul {
+	text-align: right;
+}
+
+.menu ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.menu ul li a {
+	font-size: 11px;
+	color:#FFF;
+	text-decoration: none;
+	text-transform: uppercase;
+	line-height: 50px;
+	padding: 0 10px;
+}
+
+.menu ul li.active {
+	background: #EB43A3;
+}
+
+.menu ul li a:hover {
+	display: block;
+	background: #EB43A3;
+}
+
+
+/* ########################### */
+/* ######### Contenu ######### */
+/* ########################### */
+
+main {
+	width: 100%;
+	float:left;
+	background: url(../img/background.png);
+}
+main h2, main h3 {
+	font-family: 'Courgette', cursive;
+	color:#EB43A3;
+}
+
+
+/* J'ai donné la hauteur du main section car le dernier DIV du contact ne sont pas
+pris en compte dans la main section. Je pense que c'est à cause de l'id donné
+dans le div du Contact, qui prend la priorité du style. */
+main section {
+	width:1216px;
+	height:1060px;
+	background-color:#FFF;
+	margin: 30px auto;
+	padding: 20px;
+  	box-shadow: 0 0 40px gray;
+	border-radius: 5px;
+}
+
+/* ######## Contenu : title  ######## */
+
+main .title {
+	height:160px;
+}
+
+main .title h1 {
+	font-family: 'Courgette', cursive;
+	background-image: url(../img/rainbow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #C55394;
+	text-align: center;
+	margin-top: 20px;
+	line-height: 260px;
+}
+
+/* ####### Contenu : Le principe  ####### */
+
+#principe {
+	padding-bottom: 30px;
+}
+#principe p {
+	font-size: 14px;
+}
+
+/* ####### Contenu : Images des Licornes  ####### */
+
+#licorne {
+	padding-bottom: 30px;
+}
+
+figure {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+figcaption {
+	background-color: black;
+	opacity: 0.8;
+	color: #FFF;
+	text-align: center;
+	font-size: 12px;
+	padding:10px 0;
+	margin-top:-36px;
+}
+
+figure {
+	width:300px;
+	height: 300px;
+	overflow: hidden;
+}
+
+figure img {
+	-webkit-transition: all 1s ease; /* Safari and Chrome */
+	-moz-transition: all 1s ease; /* Firefox */
+	-o-transition: all 1s ease; /* IE 9 */
+	-ms-transition: all 1s ease; /* Opera */
+	transition: all 1s ease;
+	max-width: 100%;
+}
+
+figure img:hover {
+	-webkit-transform:scale(1.25); /* Safari and Chrome */
+	-moz-transform:scale(1.25); /* Firefox */
+	-ms-transform:scale(1.25); /* IE 9 */
+	-o-transform:scale(1.25); /* Opera */
+	transform:scale(1.25);
+}
+
+/* ####### Contact Information  ####### */
+
+.contact {
+	width:100%;
+	float: left;
+}
+
+.gmap {
+	width:60%;
+	float:left;
+}
+.contact-info {
+	width: 40%;
+	float:left;
+}
+
+.contact-info p {
+	font-size: 14px;
+	padding-bottom: 8px;
+}
+
+.submit {
+	background-color: #C55394;
+	color: #FFF;
+	border:0;
+	border-radius: 5px;
+	margin: 5px 0;
+	padding:5px 14px;
+}
+
+
+/* ########################### */
+/* ######### Footer  ######### */
+/* ########################### */
+
+footer {
+	width: 100%;
+	height:36px;
+	float:left;
+	background-color: #E577B5;
+}
+footer p {
+	color: #FFF;
+	font-size: 12px;
+	text-align: right;
+	line-height: 36px;
+	padding-right: 12px;
+}

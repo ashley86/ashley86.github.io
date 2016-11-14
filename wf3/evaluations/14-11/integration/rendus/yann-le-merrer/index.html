@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="FR">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Evaluation Yann Le Merrer 14/11</title>
+
+		<!-- ajout des courgettes -->
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+		<!-- liens bootstrap, font awesome et css, dans l'ordre adequat et script en bas de body -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	</head>
+
+	<body>
+
+		<header>
+			<div class="container-fluid topheader">
+				<div class="row">
+					<div class="col-md-6">
+						<p>	MyUnicorns</p>
+					</div>
+					<ul class="col-md-6">
+
+						<!-- c'est dans cet ordre car il se passe un truc louche avec le float -->
+						<li><a href="#">Nous trouver</a></li>
+						<li><a href="#">Nos Licornes</a></li>
+						<li><a href="#">Le principe</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- je considere cette partie comme étant dans le header -->
+			<div class="container letitre">
+				<div class="row">
+					<div class="col-md-12">
+
+						<h1>Un jour, une licorne</h1>
+						<img src="assets/img/rainbow.png" alt="arc-en-ciel">
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- fin du header, début des licornes -->
+		<!-- début contenu principal regroupant le bloc central un article un aside un footer -->
+
+		<div class="container contenuprincipal">
+			<main>
+			<!-- le principe -->
+			<div class="row">
+
+				<article class="col-lg-12">
+					<h2><i class="fa fa-star-o"></i> Le Principe</h2>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dictum dapibus ante, eu aliquam ante euismod eleifend. Ut malesuada augue ut luctus pellentesque. Aenean id varius ipsum. Nunc malesuada ex ut ipsum interdum vestibulum. Integer facilisis finibus orci, sit amet pretium diam placerat vitae. Nunc auctor tincidunt mollis. Nullam quis turpis sed lorem elementum semper eget semper risus. In nec mauris aliquam, congue metus euismod, cursus leo. Vivamus laoreet commodo leo, ut cursus justo blandit in. Aenean pretium mi a auctor pulvinar. Mauris sodales sollicitudin sodales. Sed mollis sed lectus id facilisis. Quisque pharetra a purus eget porttitor. Proin rhoncus risus non mauris iaculis sodales. Pellentesque euismod dui erat, non sodales ipsum sollicitudin sed.
+						Donec nisi eros, luctus id pretium eget, consequat elementum risus. Fusce eleifend lacinia orci eu iaculis. Vestibulum vestibulum justo quis commodo congue. Aliquam purus leo, dictum in nisl at, pellentesque bibendum mi. Nulla convallis mi eget nisl convallis dictum. Vestibulum a massa lacus. Aenean quis enim diam.
+					</p>
+				</article>
+				<!-- nos licornes moches -->
+				<aside class="row">
+					<h2 class="col-lg-12"><i class="fa fa-star-o"></i> Nos licornes</h2>
+					<figure class="col-lg-3">
+						<img src="assets/img/unicorns/photo1.jpg" alt="une licorne assise sur son c..">
+						<figcaption>lulu confetty</figcaption>
+					</figure>
+					<figure class="col-lg-3">
+						<img src="assets/img/unicorns/photo2.jpg" alt="une licorne avec des ailes">
+						<figcaption>lapillon magic</figcaption>
+					</figure>
+					<figure class="col-lg-3">
+						<img src="assets/img/unicorns/photo3.jpg" alt="une licorne ninja">
+						<figcaption>el ninjacorn</figcaption>
+					</figure>
+					<figure class="col-lg-3">
+						<img src="assets/img/unicorns/photo4.jpg" alt="une licorne coloree">
+						<figcaption>sweety candy</figcaption>
+					</figure>
+
+				</aside>
+			</div>
+			<!-- le footer est dans le main car il fait parti du même bloc que le reste -->
+			<footer>
+
+				<div class="row">
+					<h2 class="col-lg-12"><i class="fa fa-star-o"></i> Nous trouver</h2>
+					<div class="col-md-7  carte">
+
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1091.0837178236995!2d2.3341675657816165!3d48.83755198275307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1479138046828" width="800" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-5 cotedroit">
+
+						<h3>Notre élevage de licornes est situé au : </h3>
+						<p>18 Rue Geoffroy L'Aisnier <br> 75004 Paris <br> 01.23.45.67.89</p>
+						<h3>Newletter</h3>
+						<p>Abonnez-vous simplement à notre newletter mensuelle !</p>
+						<form method="post" action="newsletter.php">
+							<div class="form-group">
+								<input type="text" name="email" placeholder="Votre@email">
+							</div>
+
+
+							<button type="submit" class="btn btn-default">Valider</button>
+						</form>
+					</div>
+				</div>
+			</footer>
+
+			</main>
+
+		</div>
+	</div>
+	<!-- bandeau du bas -->
+	<footer>
+		<div class="container-fluid enbas">
+			<div class="row">
+				<div class="col-md-12">
+					<p>Yann Le Merrer</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>

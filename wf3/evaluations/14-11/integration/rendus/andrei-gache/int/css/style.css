@@ -1,0 +1,173 @@
+
+body {
+	font-family: arial, sans-serif;
+	margin:0;
+	padding:0;
+}
+a, p, h1, ul, li {
+	margin:0;
+	padding: 0;
+}
+
+header {
+	float: left;
+	width:100%;
+	height:50px;
+	background-color: #C55394
+}
+
+header .logo {
+	width: 50%;
+	float: left;
+}
+
+header .logo a {
+	font-family: 'Courgette', cursive;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 50px;
+	padding-left: 20px;
+	text-decoration: none;
+}
+
+.menu {
+	width: 50%;
+	float:left;
+}
+.menu ul {
+	text-align: right;
+}
+
+.menu ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.menu ul li a {
+	font-size: 11px;
+	color:#FFF;
+	text-decoration: none;
+	text-transform: uppercase;
+	line-height: 50px;
+	padding: 0 10px;
+}
+
+.menu ul li.active {
+	background: #EB43A3;
+}
+
+.menu ul li a:hover {
+	display: block;
+	background: #EB43A3;
+}
+
+
+
+main {
+	width: 100%;
+	float:left;
+	background: url(../img/background.png);
+}
+main h2, main h3 {
+	font-family: 'Courgette', cursive;
+	color:#EB43A3;
+}
+
+main section {
+	width:1216px;
+	height:1060px;
+	background-color:#FFF;
+	margin: 30px auto;
+	padding: 20px;
+  	box-shadow: 0 0 40px gray;
+	border-radius: 5px;
+}
+
+
+main .title {
+	height:160px;
+}
+
+main .title h1 {
+	font-family: 'Courgette', cursive;
+	background-image: url(../img/rainbow.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #C55394;
+	text-align: center;
+	margin-top: 20px;
+	line-height: 260px;
+}
+
+
+#first {
+	padding-bottom: 30px;
+}
+#first p {
+	font-size: 14px;
+}
+
+
+#second {
+	padding-bottom: 30px;
+}
+
+figure {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+figcaption {
+	background-color: black;
+	opacity: 0.8;
+	color: #FFF;
+	text-align: center;
+	font-size: 12px;
+	padding:10px 0;
+	margin-top:-36px;
+}
+
+figure {
+	width:300px;
+	height: 300px;
+	overflow: hidden;
+}
+
+.contact {
+	width:auto;
+	float: left;
+}
+
+.maps {
+	width:60%;
+	float:left;
+}
+
+.contact p {
+	font-size: 14px;
+	padding-bottom: 8px;
+}
+
+.submit {
+	background-color: #C55394;
+	color: #FFF;
+	border:0;
+	border-radius: 5px;
+	margin: 5px 0;
+	padding:5px 14px;
+}
+
+
+footer {
+	width: 100%;
+	height:36px;
+	float:left;
+	background-color: #E577B5;
+}
+footer p {
+	color: #FFF;
+	font-size: 12px;
+	text-align: right;
+	line-height: 36px;
+	padding-right: 12px;
+}

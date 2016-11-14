@@ -1,0 +1,291 @@
+
+h1{
+
+    font-weight: lighter;
+    font-size: 30px;
+
+}
+
+.fa {
+
+    color: #C55394;
+}
+
+#page{
+    max-width: 2000px;
+    background-image: url(../img/background.png);
+
+}
+
+.topHeader{
+
+    height: 290px;
+}
+
+
+
+.entete {
+    width: 100%;
+    height: 70px;
+    background-color: #C55394;
+}
+
+.entete h2 {
+    color: white;
+    font-family: 'Courgette', cursive;
+    margin-left: 30px;
+    margin-top: auto;
+    line-height: 70px;
+    float: left;
+
+}
+
+.entete ul li{
+
+    margin: 0px 10px 0px 10px;
+    list-style: none;
+    float: right;
+    font-family: Arial, sans-serif;
+}
+
+.entete ul li:hover{
+    background-color:#EB43A3;
+}
+
+.entete ul li a{
+    text-align: center;
+    padding-left: 10px;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    margin-right: 20px;
+    line-height: 70px;
+}
+
+.topHeader h1{
+    font-weight: bolder;
+    color: #C55394;
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+    line-height: 200px;
+    background-position:;
+    background-image: url(../img/rainbow.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 200px;
+    text-align: center;
+    font-family: 'Courgette', cursive;
+}
+
+.feuille {
+    background-color: white;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px 0px grey;
+    padding: 35px 20px ;
+    width: 1000px;
+
+}
+
+header{
+
+}
+
+header h1 {
+
+
+    color: #C55394;
+    font-family: 'Courgette', cursive;
+}
+
+
+header p{
+    font-family: Arial, sans-serif;
+}
+
+main{
+    height: 260px;
+}
+
+section h1 {
+
+    color: #C55394;
+    font-family: 'Courgette', cursive;
+}
+
+.pictures{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.licorne1 {
+    margin: 0px 15px;
+    float: left;
+    height: 220px;
+    width: 220px;
+    background-image: url(../img/photo1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.licorne1 p{
+    width: 220px;
+    left: 467px;
+    top: 843px;
+    position: absolute;
+    font-family: Arial, sans-serif;
+    line-height: 40px;
+    height: 40px;
+    text-align:center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
+}
+
+.licorne2 {
+    margin: 0px 15px;
+    float: left;
+    height: 220px;
+    width: 220px;
+    background-image: url(../img/photo2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.licorne2 p{
+    width: 220px;
+    left: 717px;
+    top: 843px;
+    position: absolute;
+    font-family: Arial, sans-serif;
+    line-height: 40px;
+    height: 40px;
+    text-align:center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
+}
+
+.licorne3 {
+    margin: 0px 15px;
+    float: left;
+    height: 220px;
+    width: 220px;
+    background-image: url(../img/photo3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.licorne3 p{
+    width: 220px;
+    left: 967px;
+    top: 843px;
+    position: absolute;
+    font-family: Arial, sans-serif;
+    line-height: 40px;
+    height: 40px;
+    text-align:center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
+}
+
+.licorne4 {
+    float: left;
+    height: 220px;
+    width: 220px;
+    background-image: url(../img/photo4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.licorne4 p{
+    width: 220px;
+    left: 1202px;
+    top: 843px;
+    position: absolute;
+    font-family: Arial, sans-serif;
+    line-height: 40px;
+    height: 40px;
+    text-align:center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
+}
+
+footer{
+    margin-top: 30px;
+    height: 500px;
+
+}
+
+footer h1 {
+
+    clear: both;
+    color: #C55394;
+    font-family: 'Courgette', cursive;
+}
+
+footer .plan{
+    float: left;
+}
+
+footer .contact{
+    margin-left: 20px;
+    float: left;
+    font-family: Arial, sans-serif;
+}
+
+footer .newsletter{
+    font-family: Arial, sans-serif;
+    margin-left: 20px;
+    float: left;
+    margin-bottom: 40px;
+}
+
+form [type=email] {
+    font-family: Arial, sans-serif;
+    height: 30px;
+
+    width: 200px;
+}
+
+[type=button] {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #C55394;
+    border: #C55394;
+    border-radius: border: 2px solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 70px;
+    height: 30px;
+}
+
+footer h2{
+    font-family: 'Courgette', cursive;
+    color: #C55394;
+}
+
+.topFooter{
+    width: 100%;
+    height: 70px;
+    background-color: #C55394;
+}
+
+.topFooter p{
+    font-family: Arial, sans-serif;
+    height: 70px;
+    line-height: 70px;
+    margin-top: auto;
+    margin-right: 10px;
+    color: white;
+    float: right;
+}

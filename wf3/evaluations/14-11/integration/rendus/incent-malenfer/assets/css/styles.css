@@ -1,0 +1,172 @@
+/* BODY */
+
+/* Intégration du Background du site */
+
+body {
+    background-image: url(../img/background.png);
+}
+
+/* HEADER */
+
+/* Couleur de fond de mon Header et sa bordure */
+
+header {
+    background-color: #C55394;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Mise en forme du titre */
+
+.menu h1 {
+    font-family: 'Courgette', cursive;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    margin: 0;
+}
+
+/* Suppression des marges de ma liste non-ordonée */
+
+.menu ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Suppression des puces de ma liste */
+
+.menu ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+/* Déclaration des styles pour les liens */
+
+.menu ul li a {
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Une couleur jaune plus perceptible est déclaré au survol des liens */
+
+menu ul li .current, .menu ul li a:hover {
+   color: yellow;
+}
+
+/* TITRE */
+
+/* Mise en forme du titre et intégration du background di titre */
+
+.titre {
+    background-image: url(../img/rainbow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.titre h2 {
+    text-align: center;
+    color: #C55394;
+    font-family: 'Courgette', cursive;
+    font-weight: bold;
+    padding: 120px;
+    margin-bottom: 10px;
+}
+
+/* CONTENU */
+
+/* Support du contenu */
+
+.content {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px #CCC;
+}
+
+/* Mise en forme des titres */
+
+.content h3 {
+    font-family: 'Courgette', cursive;
+    color: #EB43A3;
+    margin-top: 40px;
+}
+
+/* Mise en forme des paragraphe */
+
+.content p {
+    text-align: justify;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+/* Déclaration des styles pour les images */
+
+#noslicornes figure {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#noslicornes figure figcaption {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+#noustrouver aside {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#noustrouver article {
+    margin-top: 60px;
+}
+
+#noustrouver article h4 {
+    font-family: 'Courgette', cursive;
+    color: #EB43A3;
+}
+
+#noustrouver article p {
+    font-family: Arial, sans-serif;
+    color: black;
+    text-align: left;
+}
+
+/* Changement du design du bouton */
+
+input[type=submit] {
+    width: 75px;
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #C55394;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+/* FOOTER */
+
+/* Fond du pied de page identique au header */
+
+footer {
+    background-color: #C55394;
+    margin-top: 50px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+footer p {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+
+}

@@ -1,0 +1,132 @@
+/*couleur fond de page*/
+
+body{
+	background: url(../img/background.png);
+	position:relative;
+}
+
+/*en tête*/
+header{
+	background: #C55394;
+	font-family: "Arial", sans-serif;
+	line-height: 20px;
+
+	height: 50px;
+}
+header p{
+	color: #FFF;
+	margin-left: 50px;
+	line-height:  46px;
+
+	font-family: 'Courgette', cursive, sans-serif;
+
+}
+/*mennu du header*/
+.menu ul{
+	float: right;
+
+
+}
+.menu ul li{
+	display: inline-block;
+
+}
+.menu ul li a:hover {
+	color: #EB43A3;
+}
+.menu ul li a{
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #FFF;
+	margin-right: 50px;
+	line-height:  46px;
+}
+
+
+
+/*mise en forme titre*/
+
+h1{
+	text-align: center;
+	font-family: 'Courgette', cursive, sans-serif;
+	color: #C55394;
+	line-height: 90px;
+}
+/*mise en forme img arc en ciel*/
+.titre img{
+	position: absolute;
+ margin-left: 666px;
+    margin-top: -150px;
+	///////////////////////////
+
+}
+
+
+
+
+
+/*couleur arrondis ombre de section*/
+section{
+	background:#FFF;
+	border-radius:20px;
+	box-shadow:  -1px 2px 5px 1px rgba(0, 0, 0, 0.5);
+	padding: 41px;
+	margin-bottom: 20px;
+	overflow:hidden;
+
+}
+/*couleur titre police marge de section*/
+section h2{
+	color:#EB43A3;
+	font-family: 'Courgette', cursive,sans-serif;
+	margin-top: 50px;
+	margin-bottom: 70px;
+
+}
+section h3{
+	color:#EB43A3;
+	font-family: 'Courgette', cursive,sans-serif;
+	margin-top: 90px;
+}
+section h3:nth-first-child{
+	margin-top: 90px;
+}
+/*image des licorne marge,...*/
+
+aside figure{
+	margin: 0 5px 10 5px;
+	width: 80%;
+	height: auto;
+
+}
+
+aside figcaption{
+	color: #FFF;
+	text-align:center;
+	background: black;
+}
+
+/*agrandissement image licorne*/
+aside figure:hover {
+	width:100%;
+}
+
+/*newsletter deco*/
+.newsletter {
+	font-family:  Arial, sans-serif;
+}
+.newletter{
+
+}
+footer{
+	background: #E577B5;
+
+}
+
+footer p{
+	margin-left:1600px;
+	margin-bottom: 0px;
+
+	color:#FFF;
+
+}

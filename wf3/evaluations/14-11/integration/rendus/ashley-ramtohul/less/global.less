@@ -1,0 +1,247 @@
+// main: main.less
+
+  /*----------------------------/
+ // Contient le style global  //
+/*---------------------------*/
+html {
+    font-size: 62.5%;
+
+    body {
+        background: url('../img/background.png') 0 0 repeat fixed transparent;
+        font: 1.4rem Arial, sans-serif;
+        color: @color-text; // #333
+        padding-top: 7rem;
+        height: 100%;
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Courgette', sans-serif;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: @color-theme-light;
+
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: underline;
+            }
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+// Topbar
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 3rem;
+    background-color: @color-theme-dark; // #C55394;
+
+    a {
+        color: white;
+        font-size: 3rem;
+        line-height: 7rem;
+
+        &.brand {
+            font-family: 'Courgette', sans-serif;
+        }
+    }
+
+    nav.main-menu {
+        display: inline-block;
+        float: right;
+
+        .burger {
+            display: none;
+        }
+        ul {
+            li {
+                display: inline-block;
+                text-align: right;
+
+                a {
+                    display: block;
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    height: 100%;
+                    padding: 0 1.5rem;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        text-decoration: none;
+                        background-color: @color-theme-light; // #EB43A3
+                    }
+                }
+            }
+        }
+    }
+} // Fin .topbar
+
+
+// Contenu principal
+main {
+    width: 100%;
+    max-width: 120rem;
+    margin: 3.5rem auto 6rem;
+    padding-top: 3rem;
+    background: url('../img/rainbow.png') center top no-repeat scroll transparent;
+
+    // Titre de la page
+    h1 {
+        font-size: 3rem;
+        line-height: 12rem;
+        text-align: center;
+        color: @color-theme-dark; // #C55394;
+    }
+
+    // Conteneur
+    .container {
+        box-shadow: 0 0 1.5rem rgba(0,0,0,.5);
+        background-color: #fff;
+        padding: 0.1rem 2rem 5rem;
+        border-radius: .9rem;
+
+        h2 {
+            color: @color-theme-light; // #EB43A3
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin: 7rem 0 2.5rem;
+
+            &:before {
+                content: '\f006';
+                display: inline-block;
+                font: 2.8rem FontAwesome;
+                margin-right: .5rem;
+            }
+        }
+
+        // Licornes
+        .guest-unicorn {
+            overflow: hidden;
+
+            li {
+                float: left;
+                width: 25%;
+                padding: 0 1rem;
+
+                figure {
+                    position: relative;
+                    overflow: hidden;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                        transition: transform 0.5s ease;
+
+                        &:hover {
+                            transform: scale(1.1);
+                            transform-origin: center;
+                        }
+                    }
+
+                    figcaption {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        background-color: rgba(0,0,0,.8);
+                        color: #fff;
+                        line-height: 3.5rem;
+                        text-align: center;
+                    }
+                }
+            }
+        } // Fin .guest-unicorn
+
+        // Contact
+        .contact {
+
+            overflow: hidden;
+
+            & > div {
+                float: left;
+                margin-bottom: 3rem;
+                width: 42.5%;
+
+                h3 {
+                    color: @color-theme-dark;
+                    font-size: 1.5rem;
+                    margin: 1.5rem 0;
+                }
+
+                // Carte
+                &.gmap {
+                    width: calc(57.5% - 20px);
+                    margin: 0 2rem 0 0;
+
+                    iframe {
+                        width: 100%;
+                        height: 450px;
+                    }
+                }
+
+                // Adresse
+
+
+                // Newsletter
+                &.newsletter {
+
+                    input {
+                        display: block;
+                        margin-bottom: 10px;
+
+                        &[type="email"] {
+                            border:1px solid #a9a9a9;
+                            width: 20rem;
+                            height: 3rem;
+                            line-height: 3rem;
+                            padding-left: 1rem;
+                        }
+
+                        &[type=submit] {
+                            height: 3rem;
+                            padding: 0 3rem;
+                            color: #fff;
+                            border-radius: 3px;
+                            border:1px solid @color-theme-light; // #EB43A3
+                            background-color: @color-theme-dark; // #C55394
+
+                            &:focus {
+                                border:1px solid @color-theme-dark; // #C55394
+                                background-color: @color-theme-light; // #EB43A3
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+    } // Fin .container
+
+} // Fin contenu principal
+
+
+// Pied de page
+.footbar {
+    width: 100%;
+    padding-right: 1.5rem;
+    background-color: #E577B5;
+    font-size: 1.4rem;
+    line-height: 5.5rem;
+    color: #fff;
+    text-align: right;
+} // Fin pied de page

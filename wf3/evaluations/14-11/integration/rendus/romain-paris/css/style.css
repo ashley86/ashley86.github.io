@@ -1,0 +1,106 @@
+
+body{
+	background: url(../img/background.png);
+}
+/*  Header  */
+
+header{
+
+}
+h1{
+	text-align: center;
+	font-family: 'Courgette', cursive;
+	color: #EB43A3;
+
+}
+h3{
+	font-family: 'Courgette', cursive;
+	color: #EB43A3;
+}
+.bottomheader{
+	width: 100%;
+	height: auto;
+	background: url(../img/rainbow.png);
+}
+.navbar{
+	width: 100%;
+	height: 40px;
+	background-color: #C55394;
+	box-shadow: 5px;
+}
+.navbar a{
+	color: white;
+	font-family: 'Courgette', cursive;
+	text-decoration:none;
+}
+.titlenavbar{
+	width: 15%;
+	height: 100%;
+	float: left;
+
+}
+.titlenavbar a{
+	text-decoration: none;
+	text-align: center;
+}
+.menubtn{
+	width: 10%;
+	height: 100%;
+	padding-right: 10px;
+	margin-right: 5px;
+	text-transform: uppercase;
+	float: right;
+	font-family: Arial, sans-serif;
+
+}
+.menubtn:hover{
+	background-color: #EB43A3;
+
+}
+.menubtn a{
+	text-decoration: none;
+	text-align: center;
+}
+.bottomheader > h1{
+	text-align: center;
+	color: #C55394;
+}
+/*  PAGE*/
+#page {
+    width: 1200px;
+    background: #FFF;
+    margin: 80px auto 80px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px #CCC;
+    padding: 5px;
+}
+
+/*  Section txt */
+.principetxt{
+	width: 100%;
+	height: auto;
+	padding: 5px;
+	float: left;
+
+}
+
+
+/* section img */
+.imageslcrn{
+	width: 100%;
+	height: auto;
+	float: left;
+}
+figure {
+	width: calc((100% / 4) - 80px);
+	height: auto;
+	float: left;
+
+}
+
+figure img {
+	width: 100%;
+
+}
+

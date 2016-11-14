@@ -1,0 +1,252 @@
+
+/*font-family: 'Courgette', cursive;*/
+body{
+	background-image: url("../img/background.png");
+
+}
+
+body p{
+	font-family: Arial, sans-serif;
+}
+
+
+/*----------------------------
+	BARRE DU HAUT
+-----------------------------*/
+
+.barre {
+    width: 100%;
+    height: 50px;
+    background-color: #C55394;
+    position: relative;
+}
+
+.logo{
+	width: 25%;
+	float: left;
+
+}
+
+.titre {
+    display: inline;
+    color: #fff;
+    font-family: 'Courgette', cursive;
+    top: -13px;
+    left: 27px;
+    position: absolute;
+}
+
+.navigation{
+	width: 75%;
+	float: right;
+
+}
+
+.navigation nav{
+
+	  float: right;
+	  margin-right: 20px;
+}
+
+.navigation nav ul {
+    height: 100%;
+    margin: 0;
+}
+
+.navigation nav ul li{
+	display: inline-block;
+	margin-right: 10px;
+	height: 50px;
+}
+.current{
+	background-color:  #EB43A3;
+}
+
+.navigation nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 50px;
+}
+
+.navigation nav ul li:hover{
+	background-color:  #EB43A3;
+
+}
+
+/*------------------------
+			MAIN
+-----------------------------*/
+.rainbow{
+    background-image: url(../img/rainbow.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150px;
+    background-position: center;
+    background-position-y: 0px;
+
+
+}
+.rainbow h2 {
+   color: #EB43A3;
+    text-align: center;
+    font-family: 'Courgette', cursive;
+    margin-top: 124px;
+    padding: 75px;
+    font-weight: bold;
+    font-size: 2em;
+
+}
+
+/*-------------------------------
+			PAGE
+------------------------------*/
+
+#page {
+    width: 75%;
+   height: 1300px;
+    background-color: #FFF;
+    margin: 0px auto;
+    padding: 70px 30px 10px 30px;
+    border-radius: 20px;
+     box-shadow: 1px 1px 12px #555;
+}
+
+
+#page i{
+	color: #EB43A3;
+	float: left;
+	display: block;
+	width: 100%;
+	margin-bottom: 50px;
+	font-size: 1.2em;
+
+}
+
+.titreArt {
+    font-family: 'Courgette', cursive;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+article{
+	width: 100%;
+	height: auto;
+	float: left;
+}
+aside {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 70px;
+}
+
+.licorne{
+
+	display: inline;
+	width: 300px;
+	padding-left: 50px;
+	float: left;
+
+}
+
+.licorne a img{
+	border-style: none;
+    position: relative;
+
+}
+
+.licorne a img:hover{
+	transform: scale(1.10);
+}
+.presentation {
+    position: absolute;
+    bottom: -95px;
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 31px;
+    opacity: 0.9;
+}
+
+/*---------------------------
+			CONTACT
+----------------------------*/
+
+#renseignement{
+	width: 100%;
+	float: left;
+	margin-top: 70px;
+
+}
+
+.map{
+	float: left;
+	display: inline;
+	width: 450px;
+}
+.cordonne{
+	float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 300px;
+
+}
+
+.formulaire{
+
+	float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 300px;
+}
+a.concon {
+    text-decoration: none;
+    color: black;
+}
+
+input[type="button"] {
+    background-color: #EB43A3;
+    color: white;
+    width: 100px;
+    border-radius: 5px;
+}
+
+h4{
+	color: #EB43A3;
+
+    font-family: 'Courgette', cursive;
+
+}
+
+
+
+
+
+
+/*---------------------------------
+				BAS DE PAGE
+----------------------------------*/
+footer{
+	width: 100%;
+    height: 60px;
+    background-color: #C55394;
+    margin-top: 200px;
+}
+
+
+ h5 {
+    color: white;
+    margin-right: 20px;
+    background-color: #C55394;
+    float: right;
+}
+
+
+
+
+

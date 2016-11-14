@@ -1,0 +1,192 @@
+html {
+
+	font-size: 62.5rem;
+}
+
+
+body {
+
+		background-image: url(../img/background.png)
+}
+
+
+.topheader {
+	background-color:  #C55394;
+
+}
+
+.topheader p {
+
+	font-family: 'Courgette', cursive;
+	font-weight: bold;
+	color:  #FFF;
+	padding-top: 0.5em;
+
+}
+
+
+.topheader ul li {
+		display: inline-block;
+		float: right;
+		margin-top: 0.5em;
+}
+
+.topheader ul li a {
+
+		font-family: Arial, sans-serif;
+		color:  #FFF ;
+		margin-right: 1em;
+}
+
+.topheader ul li a:hover {
+
+		background-color: #EB43A3;
+		text-decoration: none;
+}
+
+/*je ne suis pas sur que cela soit la solution la plus élégante mais absolute ! A mon avis, n'importe quoi :-)*/
+
+.letitre h1 {
+
+	margin-left: 40%;
+	font-family: 'Courgette', cursive;
+	font-weight: bold;
+	color:  #C55394;
+	margin-top: 4em;
+	z-index: 1;
+	position: absolute;
+}
+
+.letitre img {
+
+	position: absolute;
+	margin-left: 25%;
+	z-index: 2;
+	margin-top: 2em;
+}
+
+
+								/*début contenu principal regroupant le bloc central un article
+								un aside un footer*/
+
+
+
+
+.contenuprincipal {
+
+	margin-top: 15em;  /*mes betises avec les positions m'amenent à faire ce truc un peu sale*/
+	width: 85%;
+	height: auto;
+	background-color: #FFF;
+	border: 1px solid black;
+	border-radius: 0.5em;
+	z-index: 1;
+	box-shadow: 2px 2px 2px 2px #717171;
+}
+
+
+.contenuprincipal i {
+
+
+	color: #C55394;
+
+
+}
+
+
+.contenuprincipal h2 {
+
+
+
+	font-family: 'Courgette', cursive;
+	color: #C55394;
+
+
+}
+
+.contenuprincipal figure img {
+
+	padding-left: 2em;
+
+
+}
+
+.contenuprincipal figure img:hover {
+
+	width: 400px;
+	height: auto;
+}
+
+
+.contenuprincipal figcaption {
+
+	position: absolute;
+	bottom: 0;
+	width: 73%;
+	margin-left: 2em;
+	height: 2em;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, 0.58);
+
+}
+
+aside h2 {
+
+	margin-left: 0.5em;
+}
+
+
+						/*le footer*/
+
+
+
+footer {
+
+	margin : 3em 0 3em 0.5em;
+}
+
+
+
+footer h3 {
+
+
+	font-family: 'Courgette', cursive;
+	color: #C55394;
+
+
+}
+
+
+.cotedroit {
+
+	padding-right: 2em;
+}
+
+form button {
+
+	color: #FFF;
+	background-color:   #E577B5;
+
+}
+
+/*footer du  bas*/
+
+
+.enbas {
+	width: 100%;
+	height: auto;
+	background-color: #E577B5;
+
+}
+
+.enbas p {
+
+	text-align: right;
+}
+
+
+
+
+

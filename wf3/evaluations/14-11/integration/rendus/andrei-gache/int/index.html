@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <!-- L'encodage de la page   -->
+        <meta charset="UTF-8">
+        <!-- Titre du site   -->
+        <title>My Unicorn</title>
+
+        <!-- Pour Internet Explorer: s'assurer qu'il utilise la dernière version du moteur de rendu  -->
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+
+        <!-- Pour mobile: Affichage sans zoom sur les mobiles (initial scale=1 veut dire que c'est sans zoom") -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Google Font   -->
+        <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
+        <!-- Fontawesome -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <!-- Feuile de style   -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- HTML5 SHIV : Polyfill  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <div class="logo">
+                <a href="index.html">MyUnicorn</a>
+            </div>  <!-- Fin : Nom du site -->
+
+            <div class="menu">
+                <ul>
+                    <li class="active"><a href="#principe">Le principe</a></li>
+                    <li><a href="#licorne">Nos Licornes</a></li>
+                    <li><a href="#trouver">Nous trouver</a></li>
+                </ul>
+            </div>
+        </header>
+
+
+        <main>
+            <div class="title">
+             <h1>Un jour, une licorne</h1>
+            </div>
+            <section>
+                <div id="first">
+                    <h2><i class="fa fa-star-o" aria-hidden="true"></i> Le principe</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   </p>
+                </div>
+                <div id="second">
+                    <h2><i class="fa fa-star-o" aria-hidden="true"></i> Nos licornes</h2>
+                    <div class="image">
+                        <figure>
+                        <img src="img/unicorns/photo1.jpg" alt="unicorn-Lulu Confetty" />
+                        <figcaption>Lulu Connfetty</figcaption>
+                        </figure>
+                        <figure>
+                        <img src="img/unicorns/photo2.jpg" alt="unicorn-Lapillon Magik" />
+                        <figcaption>Lapilon Magik</figcaption>
+                        </figure>
+                        <figure>
+                        <img src="img/unicorns/photo3.jpg" alt="unicorn-El Ninjacorn" />
+                        <figcaption>El Ninjacorn</figcaption>
+                        </figure>
+                        <figure>
+                        <img src="img/unicorns/photo4.jpg" alt="unicorn-Sweety Candy" />
+                        <figcaption>Sweety Candy</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="contact" id="trouver">
+
+                    <h2><i class="fa fa-star-o" aria-hidden="true"></i> Nous trouver</h2>
+
+
+                    <div class="maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.1126607638953!2d2.332565915833441!3d48.836989710167096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671c7727cd5bb%3A0xae9fee24001ed52a!2sH%C3%B4pital+Saint-Vincent+de+Paul!5e0!3m2!1sen!2sfr!4v1479137029143" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+
+
+                    <div class="contact">
+                        <div class="adresse">
+                            <h3>Notre élevage de licornes est situé au : </h3>
+                            <p>18 Rue Geoffroy l'Asnier <br> 75004 Paris <br> 01.23.45.67.89</p>
+                        </div>
+                        <div class="newsletter">
+                            <form action="newsletter.php" method="POST">
+                                <h3>Newsletter</h3>
+                                <p>Abonnez-vous simplement à notre newsletter mensuelle !</p>
+                                <input required type="email" name="email" placeholder="  votre@email.com" class="email" /><br>
+                                <input type="submit" value="Valider" class="submit" />
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </body>
+
+
+</html>
+
