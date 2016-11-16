@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>init 01</title>
-    <script type="text/javascript">
+    <head>
+        <meta charset="UTF-8">
+        <title>init 01</title>
 
-        var maVar = 10;
+        <link rel="stylesheet" href="css/style.css" />
 
-        console.log(maVar);
+<!--        <script type="text/javascript" src="js/base.js"></script> -->
+<!--        <script type="text/javascript" src="js/main.js"></script> -->
+<!--        <script type="text/javascript" src="js/cube.js"></script>-->
+        <script type="text/javascript" src="js/form.js"></script>
+    </head>
+    <body>
 
-    </script>
+        <!-- Fonctionne avec main.js -->
+        <!--<div class="main" style="display:none;">
+            <div id="conteneur"></div>
+            <div class="conteneur"></div>
+            <div class="conteneur"></div>
+            <div class="conteneur"></div>
+            <div class="conteneur"></div>
+        </div>-->
 
-</head>
-<body>
+        <!-- Fonctionne avec cube.js -->
+        <!--<div class="cube">
+            <a href="#" id="link">test</a>
+            <div id="conteneur"></div>
+        </div>-->
 
-</body>
+        <div class="form">
+            <form action="phpLibs/mail.php" method="post" id="form">
+
+                <input type="text" name="email" placeholder="email@mail.com" />
+                <input type="submit" value="Envoyer" />
+
+            </form>
+        </div>
+
+    </body>
 </html>
