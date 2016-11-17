@@ -101,6 +101,8 @@ window.onload = function ()
                         {
                             // On arrête le chrono
                             stopCount();
+                            // On retourne en haut de la page
+                            window.scrollTo(0,0);
                             // On active la récompense
                             activateFireworks();
                         }
@@ -126,7 +128,8 @@ window.onload = function ()
 
         // Affichage du plateau de jeu
         gameContainer.style.display = 'block';
-        document.getElementById('clock').style.display = 'block';
+        document.getElementById('clock').style.display = 'inline-block';
+        document.getElementById('memory').scrollIntoView();
 
         startCount();
     });
@@ -139,6 +142,7 @@ window.onload = function ()
         if (e.keyCode === k[n++]) {
             if (n === k.length)
             {
+                window.scrollTo(0,0);
                 alert("Vous entrez désormais dans un monde étrange !!!\n Gare à vos oreilles !!!");
                 activateFireworks();
             }

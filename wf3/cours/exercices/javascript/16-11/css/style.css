@@ -44,12 +44,12 @@ h1 {
 
 #openGalerie,
 #startGame {
-    display: block;
+    display: inline-block;
     position: relative;
     z-index: 2;
     width: 250px;
     height: 50px;
-    margin: 50px auto;
+    margin: 50px 20px 50px 0;
     background: #ccc;
     border-radius: 5px;
     color: #000;
@@ -57,8 +57,13 @@ h1 {
     line-height: 50px;
     text-align: center;
     text-decoration: none;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#startGame:hover {
+    background: #bbb;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
 }
 
 #openGalerie:hover {
@@ -147,6 +152,10 @@ div#back span {
     vertical-align: middle;
 }
 
+.clock {
+    text-align: center;
+}
+
 #clock {
     position: relative;
     z-index: 2;
@@ -156,7 +165,7 @@ div#back span {
     font-size: 25px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
     border-radius: 5px;
-    padding: 15px 0;
+    padding: 10px 0;
     margin: auto;
     color: white;
     display: none;
