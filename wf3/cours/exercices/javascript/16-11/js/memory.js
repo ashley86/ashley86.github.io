@@ -77,7 +77,7 @@ window.onload = function ()
                 e.preventDefault();
 
                 // Si deux cases sont activées, on sort de la fonction
-                if( onWait ) { console.log('onwait'); return false; }
+                if( onWait ) { console.log('onwait'); hideCards(); }
 
                 if( this.className == 'show' ) { console.log('show'); return false; }
 
@@ -113,9 +113,7 @@ window.onload = function ()
 
                         setTimeout(function()
                         {
-                            currentLink.className = 'hide';
-                            document.querySelector('#memory a.wrong').className = 'hide';
-                            onWait = false;
+                            hideCards();
                         },
                         1000);
                     }
@@ -139,10 +137,9 @@ window.onload = function ()
         n = 0;
     document.addEventListener('keydown', function (e) {
         if (e.keyCode === k[n++]) {
-            if (n === k.length) {
-
+            if (n === k.length)
+            {
                 alert("Vous entrez désormais dans un monde étrange !!!\n Gare à vos oreilles !!!");
-
                 activateFireworks();
             }
         } else {
@@ -244,3 +241,25 @@ function startCount(reset){
 function stopCount(){
     clock = clearTimeout(clock);
 }
+
+function hideCards()
+{
+    var wrongs = document.querySelectorAll('#memory a.wrong');
+    for( var i = wrongs.length; i > 0; i-- )
+    {
+        wrongs[ (i-1) ].className = 'hide';
+    }
+
+    onWait = false;
+}
+
+
+
+
+
+
+
+
+
+
+

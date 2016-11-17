@@ -1,40 +1,24 @@
-// Lancer la commande javascript pour executer le code uniquement après le chargement de la pge
-
-/*
- * 1ere étape : Je dois faire en sorte qu'un panel soit activé par un onglet
- * dont je récupère les composants HTML des onglets (les 'a')
- * et les panels ('div')
- */
-
-/*
- * Déterminer l'index du lien sur lequel on a cliqué
- */
-
-/*
- * Faire une fonction qui va permettre de changer le z-index des panels de façon à
- * pour faire en sorte que le panel correspondant à l'onglet sur lequel on a cliqué
- * soit au-dessus des autres
- */
-
-/*
- * Placer un écouteur d'évenement sur les onglets afin que
- * l'utilisateur puisse cliquer et activer les panels
- */
-
-
+// Au chargement de la page
 window.onload = function()
 {
+    // Récupération du conteneur de liens
     var links = document.getElementById('tabLinks');
+    // Récupération du conteneur des textes
     var txt = document.getElementById('tabTxt');
+    // Définition de la liste des liens -- astuce JS
     var tabList = Array.prototype.slice.call( links.children );
 
-    // On boucle pour écouter tous les éléments tabs
+    // On boucle pour ajouter une écoute sur tous les éléments tabs
     for(var i = 0; i < links.children.length; i++)
     {
+        // Lors d'un clique sur le lien
         links.children[i].addEventListener('click', function(e)
         {
+            // On annule le comportement par défaut
             e.preventDefault();
+            // On cherche "l'index" du lien sur lequel on vient de cliquer
             var tabIndex = tabList.indexOf(this);
+            // On demande à afficher le contenu associé
             showTab(tabIndex);
         });
     }
@@ -42,12 +26,26 @@ window.onload = function()
     // Affiche les onglets
     function showTab(index)
     {
+        //->On cache l'ancien onglet ouvert
+
+        // S'il y a déjà un élément affiché
         if( links.getElementsByClassName('open').length )
         {
+            // On cherche le lien de l'onglet ouvert
+            // On supprime la classe
             links.getElementsByClassName('open')[0].className = '';
+
+            // On cherche le contenu ouvert
+            // On supprime sa classe
             txt.getElementsByClassName('open')[0].className = '';
         }
+
+        //-> On affiche l'onglet désiré
+
+        // On ajoute la classe 'open' au lien
         links.children[index].className = 'open';
+
+        // On ajoute
         txt.children[index].className = 'open';
     }
 
@@ -56,7 +54,7 @@ window.onload = function()
 
 }
 
-
+// Raccourci print dans la console
 function d(msg){
     console.log(msg);
 }
