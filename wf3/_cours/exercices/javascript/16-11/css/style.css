@@ -6,7 +6,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     position: relative;
     width: 100%;
     height: 100%;
@@ -18,12 +19,22 @@ body {
     background: #eee;
     color: #333;
 }
+
 a {
     text-decoration: none;
 }
-ul,ol  {
+
+ul,
+ol {
     list-style-type: none;
 }
+
+h1 {
+    text-align: center;
+    margin: 20px auto;
+    font: bold 70px / 1.5 'MedievalSharp', cursive;
+}
+
 #openGalerie,
 #startGame {
     margin: 2%;
@@ -33,39 +44,37 @@ ul,ol  {
 
 #openGalerie,
 #startGame {
-	display: block;
-
-	width: 250px;
-	height: 50px;
-
-	margin: 50px auto;
-
-	background: #ccc;
-	border-radius: 5px;
-
-	color: #000;
-	font-size: 1.1em;
-	line-height: 50px;
-	text-align: center;
-	text-decoration: none;
-
-	transition: all 0.5s ease;
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 250px;
+    height: 50px;
+    margin: 50px auto;
+    background: #ccc;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1.1em;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #openGalerie:hover {
-	box-shadow: inset 0 0 10px 0 #212121;
-
-	text-decoration: none;
+    box-shadow: inset 0 0 10px 0 #212121;
+    text-decoration: none;
 }
 
 #conteneurVignettes,
 #memory {
-	width: 840px;
-	height: 840px;
-
-	margin: 3% auto;
-
-	background: #fff;
+    width: 880px;
+    height: 880px;
+    margin: 3% auto;
+    background: #333;
+    display: none;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 #memory a {
@@ -74,16 +83,81 @@ ul,ol  {
     width: 170px;
     height: 170px;
     margin: 20px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,.4);
+    transition: all 0.2s;
+}
+
+#memory a.hide:focus,
+#memory a.hide:hover {
+    box-shadow: 0 0 10px rgba(255,255,255,.8);
+}
+
+#memory a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 10px;
+    background:url('../img/bg-card.jpg') repeat 0 0 transparent;
+    transition: all 0.5s;
+    transform: rotateY(90deg);
+}
+
+#memory a.hide:before {
+    transform: rotateY(0deg);
+}
+
+#memory a.founded {
+    box-shadow: 0 0 10px 2px rgba(0,218,18,.8);
+}
+#memory a.wrong {
+    box-shadow: 0 0 10px 5px rgba(255,0,0,.8);
 }
 
 #memory a img {
     display: block;
     width: 100%;
     height: 100%;
+    border-radius: 10px;
 }
 
-#conteneurVignettes img{
-    width: 80px;
-    height: 80px;
-    margin: 1%;
+div#back {
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 1;
+    display: none;
+}
+
+div#back span {
+    color: white;
+    font-size: 100px;
+    display: block;
+    text-align: center;
+    line-height: 100vh;
+    vertical-align: middle;
+}
+
+#clock {
+    position: relative;
+    z-index: 2;
+    width: 150px;
+    text-align: center;
+    background: rgba(0,0,0,.6);
+    font-size: 25px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+    border-radius: 5px;
+    padding: 15px 0;
+    margin: auto;
+    color: white;
+    display: none;
 }

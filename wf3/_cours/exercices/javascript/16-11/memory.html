@@ -2,28 +2,35 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Memory</title>
+        <title>Memory | Ashley Ramtohul</title>
 
+        <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+        <link rel="stylesheet" href="css/fireworks.css" />
         <link rel="stylesheet" href="css/style.css" />
 
         <script type="text/javascript" src="js/memory.js"></script>
     </head>
     <body>
 
+        <h1>Memory</h1>
+
+        <!-- Bouton pour commencer le jeu -->
         <a href="#" id="startGame">Commencer</a>
-<!--        <a href="#" id="restartGame">Recommencer</a>-->
-        <div id="memory">
-<!--
-           <a href="#"><img src="img/galerie/img01.jpg" alt="image n°01"></a>
-           <a href="#"><img src="img/galerie/img02.jpg" alt="image n°02"></a>
-           <a href="#"><img src="img/galerie/img03.jpg" alt="image n°03"></a>
-           <a href="#"><img src="img/galerie/img04.jpg" alt="image n°04"></a>
-           <a href="#"><img src="img/galerie/img05.jpg" alt="image n°05"></a>
-           <a href="#"><img src="img/galerie/img06.jpg" alt="image n°06"></a>
-           <a href="#"><img src="img/galerie/img07.jpg" alt="image n°07"></a>
-           <a href="#"><img src="img/galerie/img08.jpg" alt="image n°08"></a>
--->
+        <div class="clock"><input type="text" id="clock" value="..." /></div>
+        <!-- Plateau de jeu -->
+        <div id="memory"></div>
+
+        <!-- Récompense -->
+        <div id="back"><span>Félicitations !</span></div>
+        <div id="fireworks-template">
+            <div id="fw" class="firework"></div>
+            <div id="fp" class="fireworkParticle"><img src="img/particles.gif" alt="" /></div>
         </div>
+        <div id="fireContainer"></div>
+
+        <!-- JS -->
+        <script type="text/javascript" src="js/soundmanager2-nodebug-jsmin.js"></script>
+        <script type="text/javascript" src="js/fireworks.js"></script>
 
     </body>
 </html>
