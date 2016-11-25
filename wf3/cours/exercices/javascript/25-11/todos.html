@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html xmlns="//www.w3.org/1999/xhtml" lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>PlayList - AngularJS</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+
+    </head>
+
+
+    <body>
+
+        <!--
+            | Déclaration d'un module |
+              Angular comprendra que cette élément est
+              un module qu'il doit prendre en charge
+        -->
+        <div ng-app="test">
+
+            <!--
+                | Déclaration d'un conteneur |
+
+             -->
+            <div id="myContainer" ng-controller="testCtrl">
+
+                <!-- Mise en relation entre le scope du contrôleur et la vue en binding one way : [contrôleur => vue] -->
+                <h1 ng-class="{newTitle : titleHasChange}">{{title}}</h1>
+
+                <ul class="listTitle">
+                    <li><a href="#" ng-click="changeTitle($event, 0);">titre 1</a></li>
+                    <li><a href="#" ng-click="changeTitle($event, 1);">titre 2</a></li>
+                    <li><a href="#" ng-click="changeTitle($event, 2);">titre 3</a></li>
+                    <li><a href="#" ng-click="changeTitle($event, 3);">titre 4</a></li>
+                    <li><a href="#" ng-click="changeTitle($event);">x</a></li>
+                </ul>
+
+                <form action="#" id="testForm" ng-submit="testTwoWays($event)">
+                    <input type="text" ng-model="formData" id="newTitle" autocomplete="off" placeholder="Remplir la liste...">
+                </form>
+
+
+                <p class="nbElt" ng-class="{showB : formDatas.length}">Il y a {{formDatas.length}} élément<span ng-class="formDatas.length > 1 ? 'showIB' : ''">s</span> dans la liste</p>
+
+                <ul class="todoList">
+                    <li ng-repeat="data in formDatas">{{data.name}} <a href="#" ng-click="removeData($event, $index)">x</a></li>
+                </ul>
+
+
+            </div> <!-- Fin de prise en charge du conteneur -->
+
+        </div> <!-- Fin de prise en charge du module -->
+
+        <!-- Appel des scripts -->
+        <script type="text/javascript" src="assets/js/angularjs.js"></script>
+        <script type="text/javascript" src="assets/js/todo.js"></script>
+    </body>
+</html>

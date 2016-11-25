@@ -1,6 +1,5 @@
 <?php
 
-
     $dir        = 'assets/img/galerie/';
     $dirThb     = $dir . 'vignettes/';
     $filesList  = scandir($dir);
@@ -15,3 +14,4 @@
     }
 
     echo json_encode($files);
+?>
