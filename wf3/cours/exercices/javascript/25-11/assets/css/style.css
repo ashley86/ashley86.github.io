@@ -1,0 +1,165 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    /*-moz-appearance: none;*/
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+body {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    background: #eaeaea;
+    color: #4d4d4d;
+    width: 550px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#myContainer h1 {
+    text-align: center;
+}
+
+#myContainer h1.newTitle {
+    color: #d40000;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, .25);
+}
+#myContainer .listTitle {
+    text-align: center;
+}
+
+#myContainer .listTitle li {
+    margin: 0 10px 0 0;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    border-left: 1px solid #333;
+}
+
+#myContainer .listTitle li:first-child {
+    border: none;
+}
+
+#myContainer .listTitle li a {
+    color: #333333;
+    font-size: 16px;
+}
+
+#testForm {
+    width: 300px;
+    height: 40px;
+    margin: 100px auto;
+}
+
+#testForm input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding-left: 4%;
+}
+
+.todoList {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+
+.todoList li {
+    list-style-type: disc;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.todoList li:first-letter {
+    text-transform: uppercase;
+}
+
+.todoList li a{
+    float: right;
+    color: #fff;
+    padding: 0px 10px;
+    line-height: 30px;
+    vertical-align: inherit;
+    border-radius: 50%;
+    background: #d40000;
+    font-size: 15px;
+}
+
+.nbElt {
+    display: none;
+    text-align: center;
+}
+
+.nbElt span {
+    display: none;
+}
+
+.showB {
+    display: block !important;
+}
+
+.showIB {
+    display: inline-block !important;
+}
+
+
+body {
+    width: 80%;
+    margin: 50px auto;
+}
+
+#galerie ul {
+    text-align: center;
+}
+
+#galerie ul li {
+    display: inline-block;
+    margin: 5px;
+    border:5px solid #fff;
+}
+
+#galerie ul li img {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#bigImage {
+    display: none;
+    text-align: center;
+}

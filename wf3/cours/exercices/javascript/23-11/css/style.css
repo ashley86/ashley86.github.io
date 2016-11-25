@@ -1,0 +1,190 @@
+*{
+	padding: 0;
+	margin: 0;
+	outline: none;
+	border:none;
+	box-sizing: border-box; 
+}
+html{
+	font-size: 62.5%;
+}
+html,body{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	font-size: 1.6em;
+	font-family: Arial, sans-serif;
+	background-color: #999;
+	color:#333;
+}
+a{
+	text-decoration: none;
+}
+ul,ol{
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+
+#openGalerie {
+	margin:2%;
+	width: 6%;
+	line-height: 30px;
+	color: #000;
+	font-size: 1.1em;
+	text-align: center;
+	background: #ccc;
+	display: block;
+}
+#conteneurVignettes{
+	width: 80%;
+	background-color: #fff;
+	margin:0 10%;
+	position: absolute;
+	min-height: 150px;
+	bottom: 50px;
+	opacity: 0;
+	overflow: hidden;
+}
+#conteneurVignettes #pellicule {
+	/* width: 15.66666666667%; */
+	height: 140px;
+	margin:5px;
+	/* display: inline-block; */
+	float: left;
+	/* vertical-align: top; */
+	/* position: relative; */
+	/* overflow: hidden; */
+	/* opacity: 0; */
+}
+#conteneurVignettes #pellicule img{
+	height: 100%;
+	border:5px solid white;
+	cursor: pointer;
+}
+/******** module popup de la galerie ******/
+#mask{
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	z-index: 10;
+	background-color: rgba(0,0,0,0.6);
+	position: fixed;
+	cursor: pointer;
+	opacity: 0;
+	display: none;
+}
+#popup{
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.8);
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 60%;
+	height: 90%;
+	-moz-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	z-index: 11;
+	opacity: 0;
+	display: none;
+}
+#popup div{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 4px;
+	text-align: center;
+}
+#popup div img{
+	height: 100%;
+}
+#popup #closeBtn{
+	display: block;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 25px;
+	background-color: #333;
+	color: #fff;
+	font-family: sans-serif;
+	border-radius: 50%;
+	border:3px solid #fff;
+	right: -10px;
+	top: -10px;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.7);
+	font-size: 1.45em;
+}
+
+/***** modul barre de chargement ***/
+#conteneurBarre{
+	position: relative;
+	width: 80%;	
+	height: 35px;
+	margin: 0 10%;
+	top: 50%;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+	background-color: #fff;
+
+}
+
+#conteneurBarre:before,
+#conteneurBarre h2{
+	text-align: center;
+	font-size: 21px;
+	line-height: 35px;
+	font-weight: lighter;
+	color:#fff;
+	text-shadow: 0 0 5px rgba(0,0,0,0.5);
+	position: absolute;
+	right: 10px;
+}
+
+#conteneurBarre:before {
+	content:'Chargement...';
+	right: auto;
+	left: 0;
+	padding: 0 10px;
+	color:#fff;
+	z-index: 1;
+	background-color: #f58f8f;
+}
+
+#conteneurBarre #barre{
+	height: 35px;
+	width: 100%;
+	border-radius: 2px;
+	position: relative;
+	overflow: hidden;
+}
+
+#conteneurBarre #barre #progresseBarre{
+	position: absolute;
+	height: 100%;
+	/*background: url('../img/loader.png') repeat-x 0 0 rgba(255,0,0,.4);*/
+	background: rgba(255,0,0,.4);
+	background-size: contain;
+	left: 0;
+	top: 0;
+	right:100%;
+}

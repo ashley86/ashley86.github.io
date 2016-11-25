@@ -1,88 +1,151 @@
 <?php
-
-if( ! count($_GET) || ! isset($_GET['a']) )
-{
-    exit('ERROR_PARAMS');
-} 
-
-$link = mysqli_connect("localhost", "id207584_wf3memory", "wf3memory", "id207584_memory");
-
-/* Vérification de la connexion */
-if (mysqli_connect_errno()) {
-    printf("Échec de la connexion : %s\n", mysqli_connect_error());
-    exit();
-}
-
-
-if( ! isset( $_GET['p'] ) || ! isset( $_GET['s'] ) )
-    exit('ERROR_PARAMS_SCORE');
-
-// Définition de l'action
-$action = htmlentities($_GET['a']);
-
-// On se réfère à l'action demandée
-switch( $action )
-{
-    // Ajouter un score
-    case 'set':
-        if( ! isset( $_GET['p'] ) || ! isset( $_GET['s'] ) )
-            exit('ERROR_PARAMS_SCORE');
-
-        $newPseudo = htmlentities($_GET['p']);
-        $newScore = (int) $_GET['s'];
-        d(setScore($newPseudo, $newScore), true);
+//
+//if( ! count($_GET) || ! isset($_GET['a']) )
+//{
+//    exit('ERROR_PARAMS');
+//} 
+//
+//$link = mysqli_connect("localhost", "id207584_wf3memory", "wf3memory", "id207584_memory");
+//
+///* Vérification de la connexion */
+//if (mysqli_connect_errno()) {
+//    printf("Échec de la connexion : %s\n", mysqli_connect_error());
+//    exit();
+//}
+//
+//
+//if( ! isset( $_GET['p'] ) || ! isset( $_GET['s'] ) )
+//    exit('ERROR_PARAMS_SCORE');
+//
+//// Définition de l'action
+//$action = htmlentities($_GET['a']);
+//
+//// On se réfère à l'action demandée
+//switch( $action )
+//{
+//    // Ajouter un score
+//    case 'set':
+//        if( ! isset( $_GET['p'] ) || ! isset( $_GET['s'] ) )
+//            exit('ERROR_PARAMS_SCORE');
+//
+//        $newPseudo = htmlentities($_GET['p']);
+//        $newScore = (int) $_GET['s'];
+//        d(setScore($newPseudo, $newScore), true);
+////        $scores = getBestScores($scoreContent);
+//
+//        
+//
+//        
+//        break;
+//
+//    // Récupérer les scores
+//    case 'get':
 //        $scores = getBestScores($scoreContent);
+//        break;
+//
+//    default:
+//        exit('ERROR_PARAMS');
+//        break;
+//}
+//
+//function setScore($newPseudo, $newScore)
+//{
+//    $link = mysqli_connect("localhost", "id207584_wf3memory", "wf3memory", "id207584_memory");
+//
+//    /* Vérification de la connexion */
+//    if (mysqli_connect_errno()) {
+//        printf("Échec de la connexion : %s\n", mysqli_connect_error());
+//        exit();
+//    }
+//    
+//    $query = "INSERT INTO scores (datetime, pseudo, score) VALUES(NOW(), $newPseudo, $newScore)";
+//    return $link->query($query) or die( mysqli );
+//}
+//
+//function getScores()
+//{
+//    $query = "SELECT * FROM scores ORDER BY score DESC LIMIT 3";
+//
+//    if ($result = mysqli_query($link, $query)) 
+//    {
+//        /* Récupère un tableau associatif */
+//        while ($row = mysqli_fetch_assoc($result)) 
+//        {
+//            printf ("%s (%s)\n", $row["pseudo"], $row["score"]);
+//        }
+//
+//        /* Libération des résultats */
+//        mysqli_free_result($result);
+//    }
+//}
+//
+//
+//
+///* Fermeture de la connexion */
+//mysqli_close($link);
 
-        
 
-        
-        break;
 
-    // Récupérer les scores
-    case 'get':
-        $scores = getBestScores($scoreContent);
-        break;
-
-    default:
-        exit('ERROR_PARAMS');
-        break;
-}
-
-function setScore($newPseudo, $newScore)
+Class Memory
 {
-    $link = mysqli_connect("localhost", "id207584_wf3memory", "wf3memory", "id207584_memory");
-
-    /* Vérification de la connexion */
-    if (mysqli_connect_errno()) {
-        printf("Échec de la connexion : %s\n", mysqli_connect_error());
-        exit();
+    public $score;
+    public $pseudo;
+    public $pdo;
+    
+    function __construct()
+    {
+        echo 'pouet';
+        try
+        {
+            // DEV
+            $this->pdo = new PDO('mysql:host=localhost;dbname=memory', 'root', '');
+            // PROD
+//            $this->pdo = new PDO('mysql:host=localhost;dbname=id207584_memory', 'id207584_wf3memory', 'wf3memory');
+        }
+        catch(Exception $e)
+        {
+            echo 'Echec de la connexion à la base de données';
+            exit();
+        }
     }
     
-    $query = "INSERT INTO scores (datetime, pseudo, score) VALUES(NOW(), $newPseudo, $newScore)";
-    return $link->query($query) or die( mysqli );
-}
-
-function getScores()
-{
-    $query = "SELECT * FROM scores ORDER BY score DESC LIMIT 3";
-
-    if ($result = mysqli_query($link, $query)) 
+    function getScores( $limit = 3 )
     {
-        /* Récupère un tableau associatif */
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-            printf ("%s (%s)\n", $row["pseudo"], $row["score"]);
-        }
+//        $stmt = $this->pdo->query('SELECT id, auteur, contenu, DATE_FORMAT(date, "%W %d %M %Y à %Hh%i") as date FROM messages');
+        $stmt = $this->pdo->prepare("SELECT pseudo, score, DATE_FORMAT(datetime, '%W %d %M %Y à %Hh%i'), score_id FROM scores LIMIT " . $limit);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $json = json_encode($results);
+        
+        
+        
+        
+//        $pdo=new PDO("mysql:dbname=database;host=127.0.0.1","user","password");
+//$statement=$pdo->prepare("SELECT * FROM table");
 
-        /* Libération des résultats */
-        mysqli_free_result($result);
+        d($json);
     }
+    
+    function getAllScores()
+    {
+        
+    }
+    
+    function setScores()
+    {
+        
+    }
+    
 }
 
+$memory = new Memory();
+d($memory->getScores());
 
 
-/* Fermeture de la connexion */
-mysqli_close($link);
+
+
+
+
+
 
 
 
