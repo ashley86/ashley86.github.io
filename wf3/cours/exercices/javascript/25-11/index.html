@@ -17,7 +17,7 @@
 
             <div ng-controller="imagesList">
 
-                <div id="bigImage" ng-class="{showB : currentImage && errorConnection}"><img ng-src="{{currentImage}}" /></div>
+                <div id="bigImage" ng-class="{showB : currentImage && ! errorConnection}"><img ng-src="{{currentImage}}" /></div>
                 <div id="errorMsg" ng-class="{hide : ! errorConnection}">Il y a un problème de connexion</div>
 
                 <ul>
