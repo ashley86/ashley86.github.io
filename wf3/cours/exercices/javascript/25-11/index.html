@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html xmlns="//www.w3.org/1999/xhtml" lang="fr">
     <head>
@@ -11,51 +12,13 @@
 
     <body>
 
-        <!--
-            | Déclaration d'un module |
-              Angular comprendra que cette élément est
-              un module qu'il doit prendre en charge
-        -->
-        <!--<div ng-app="test">-->
-
-            <!--&lt;!&ndash;-->
-                <!--| Déclaration d'un conteneur |-->
-
-             <!--&ndash;&gt;-->
-            <!--<div id="myContainer" ng-controller="testCtrl">-->
-
-                <!--&lt;!&ndash; Mise en relation entre le scope du contrôleur et la vue en binding one way : [contrôleur => vue] &ndash;&gt;-->
-                <!--<h1 ng-class="{newTitle : titleHasChange}">{{title}}</h1>-->
-
-                <!--<ul class="listTitle">-->
-                    <!--<li><a href="#" ng-click="changeTitle($event, 0);">titre 1</a></li>-->
-                    <!--<li><a href="#" ng-click="changeTitle($event, 1);">titre 2</a></li>-->
-                    <!--<li><a href="#" ng-click="changeTitle($event, 2);">titre 3</a></li>-->
-                    <!--<li><a href="#" ng-click="changeTitle($event, 3);">titre 4</a></li>-->
-                    <!--<li><a href="#" ng-click="changeTitle($event);">x</a></li>-->
-                <!--</ul>-->
-
-                <!--<form action="#" id="testForm" ng-submit="testTwoWays($event)">-->
-                    <!--<input type="text" ng-model="formData" id="newTitle" autocomplete="off" placeholder="Remplir la liste...">-->
-                <!--</form>-->
-
-
-                <!--<p class="nbElt" ng-class="{showB : formDatas.length}">Il y a {{formDatas.length}} élément<span ng-class="formDatas.length > 1 ? 'showIB' : ''">s</span> dans la liste</p>-->
-
-                <!--<ul class="todoList">-->
-                    <!--<li ng-repeat="data in formDatas">{{data.name}} <a href="#" ng-click="removeData($event, $index)">x</a></li>-->
-                <!--</ul>-->
-
-
-            <!--</div> &lt;!&ndash; Fin de prise en charge du conteneur &ndash;&gt;-->
-
-        <!--</div> &lt;!&ndash; Fin de prise en charge du module &ndash;&gt;-->
-
+        
         <div id="galerie" ng-app="galerie">
 
             <div ng-controller="imagesList">
 
-                <div id="bigImage" ng-class="{showB : currentImage}"><img ng-src="{{currentImage}}" /></div>
+                <div id="bigImage" ng-class="{showB : currentImage && ! errorConnection}"><img ng-src="{{currentImage}}" /></div>
+                <div id="errorMsg" ng-class="{hide : ! errorConnection}">Il y a un problème de connexion</div>
 
                 <ul>
 
