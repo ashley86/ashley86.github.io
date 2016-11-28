@@ -1,0 +1,101 @@
+/* Large Devices, Wide Screens (md) */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Small Devices, Tablets (xs) */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+body {
+	font-family: "Arial", sans-serif;
+}
+
+#formulaire {
+	width:80%;
+
+	margin: 20px auto;
+	padding: 20px;
+
+	background: #eee;
+	border: 1px solid #ababab;
+	border-radius: 10px;
+}
+
+label {
+	display: block;
+
+	width: 100%;
+
+	margin: 10px 0 3px 0;
+}
+
+input, select {
+	width: 100%;
+	height: 40px;
+
+	margin: 5px 0;
+    outline: none;
+    padding-left: 20px;
+}
+
+input:focus {
+    border-color:blue;
+}
+
+label.noWidth {
+	display: inline-block;
+	width: auto;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	width: auto;
+	height: auto;
+}
+
+input[type="submit"] {
+	display: block;
+
+	margin: 15px auto;
+}
+
+input[type="text"].error-input,
+input[type="email"].error-input,
+input[type="password"].error-input,
+select.error-input {
+	border: 1px solid #f2dede;
+}
+
+input[type="text"].error-input {
+	color: #a94442;
+}
+
+div.error-message {
+	height: 35px;
+
+	margin: 10px 0;
+	padding: 0 15px;
+
+	background: #ffc3c3;
+	border: 1px solid #e46f6f;
+	border-radius: 6px;
+
+	line-height: 35px;
+}
+
+.error {
+    display: none;
+    color:#f00;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+
+		<meta charset="utf-8">
+
+		<!-- Forcer IE à utiliser sa dernière version du moteur de rendu -->
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+
+		<!-- Affichage sans zoom sur les mobiles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap : Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+		<!-- Feuilles de style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+        <!-- Font-awesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+		<!-- Favicon -->
+		<!-- <link rel="icon" type="x-icon" href="assets/img/favicon.ico"> -->
+
+		<!-- Custom fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+		<script src="assets/js/less.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<title>&lt; Exercice formulaire Javascript /&gt;</title>
+
+	</head>
+
+	<body>
+
+		<form action="inscription.php" method="get" id="formulaire">
+		    <fieldset>
+
+                <legend>Formulaire d'inscription</legend>
+
+                <div id="civility">
+                    <label>Civilité*</label>
+                    <input type="radio" name="civility" id="civilityMale" value="m"  />
+                    <label for="civilityMale" class="noWidth">M</label>
+                    <input type="radio" name="civility" id="civilityFemale" value="mme" />
+                    <label for="civilityFemale" class="noWidth">Mme</label>
+                    <div class="error">Vous devez sélectionnez votre sexe</div>
+                </div>
+
+                <div id="nom">
+                    <label for="lastName">Nom*</label>
+                    <input type="text" name="lastName" id="lastName" />
+                    <div id="errorNom" class="error">Un nom ne peut pas faire moins de 2 caractères</div>
+                </div>
+
+                <div id="prenom">
+                    <label for="firstName">Prénom*</label>
+                    <input type="text" name="firstName" id="firstName" />
+                    <div id="errorPrenom" class="error">Un prénom ne peut pas faire moins de 2 caractères</div>
+                </div>
+
+                <div id="age">
+                    <label for="age">Âge*</label>
+                    <input type="number" name="age" id="age" />
+                    <div class="error"></div>
+                </div>
+
+                <div id="country">
+                    <label for="country">Pays*</label>
+                    <select name="country" id="country">
+                        <option value="">Sélectionner un pays</option>
+                        <option value="france">France</option>
+                        <option value="belgique">Belgique</option>
+                        <option value="monaco">Monaco</option>
+                        <option value="luxembourg">Luxembourg</option>
+                        <option value="suisse" selected>Suisse</option>
+                        <option value="allemagne">Allemagne</option>
+                        <option value="italie">Italie</option>
+                        <option value="espagne">Espagne</option>
+                        <option value="andorre">Andorre</option>
+                    </select>
+                    <div class="error"></div>
+                </div>
+
+                <div id="email">
+                    <label for="e-mail">Adresse e-mail*</label>
+                    <input type="email" name="email" id="e-mail" />
+                </div>
+
+                <div id="pwd">
+                    <label for="password">Mot de passe*</label>
+                    <input type="password" name="password" id="password" />
+                    <div class="error"></div>
+                </div>
+
+                <div id="pwdConfirm">
+                    <label for="passwordConfirmation">Mot de passe* (Confirmation)</label>
+                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" />
+                    <div class="error"></div>
+                </div>
+
+                <div id="newsletter">
+                    <label><input type="checkbox" name="newsletter" id="newsletter" /> Je désire recevoir la newsletter chaque mois</label>
+                    <div class="error"></div>
+                </div>
+
+                <input type="submit" id="btnEnvoyer" value="Envoyer" />
+			</fieldset>
+		</form>
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+		<!-- Javascript Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+	</body>
+
+</html>
