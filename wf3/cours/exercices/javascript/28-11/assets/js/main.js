@@ -44,7 +44,8 @@ window.onload = function()
         // S'il aucune erreur n'a été commise
         if( document.getElementsByClassName('has-error').length === 0 )
         {
-            formulaire.submit(); // J'envoie le formulaire
+            afficherResultats() // Affiche les resultats
+            // formulaire.submit(); // J'envoie le formulaire : annule
         } else {
             // On selectionne le premier element qui est errone
             firstFocus.focus();
@@ -52,6 +53,18 @@ window.onload = function()
 
     });
 
+    // Affiche les resultats dans la page
+    function afficherResultats()
+    {
+        var resultat = '';
+        for(var i = 0; i < champsAVerifier.length; i++)
+        {
+            var champAAnalyser = form[ champsAVerifier[i] ]; // On defini le champ a analyser
+            resultat = resultat + champsAVerifier[i] + ' : ' + form[ champsAVerifier[i] ].value + ' ; ';
+        }
+        document.getElementById('resultat').textContent = resultat;
+    }
+    
     // Ajoute ou supprime la classe 'has-error' au parent d'un champ
     function setClassError(elt, remove)
     {
