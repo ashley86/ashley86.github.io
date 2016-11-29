@@ -7,17 +7,25 @@ body {
     font: 14px / 1.5 Arial, sans-serif;
 }
 
-.wrapper {
+#game header {
+    text-align: center;
+}
+
+#game header h1 {
+    font-family: 'Bungee', cursive;
+    font-size: 70px;
+    color: rgba(10,60,150, 0.8);
+    text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
+
+}
+
+main {
     width: 500px;
     margin: 50px auto;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-#game header {
-    text-align: center;
 }
 
 main {
