@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background:#ccc;
+    font: 14px / 1.5 Arial, sans-serif;
+}
+
+.wrapper {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#game header {
+    text-align: center;
+}
+
+main {
+    overflow: hidden;
+}
+
+main section {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+main section .score {
+    font-size: 40px;
+    font-weight: bold;
+}
+main section#joueur .score {
+    color: #0a913b;
+}
+main section#ordinateur .score {
+    color: #d40000;
+}
+
+main section input[type=text] {
+    width: 90%;
+    display: block;
+    height: 40px;
+    margin: auto;
+    text-align: center;
+    outline: none;
+    background-color: #fff;
+    border:1px solid #aaa;
+}
+
+main section input:disabled {
+    border:1px solid #aaa;
+    background-color: #eee;
+}
+
+main section input[type=text]:focus {
+    border:1px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+main section#btn{
+    width: 100%;
+    text-align: center;
+}
+
+main section input[type=submit],
+main section input[type=button] {
+    margin: 20px auto;
+    background-color: #d40000;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 20px;
+    height: 40px;
+    border:2px solid #fff;
+}
+
+main section input[type=submit]:active,
+main section input[type=submit]:focus,
+main section input[type=button]:active,
+main section input[type=button]:focus {
+    background-color: #b40000;
+}
+
+main section input[type=submit]:disabled,
+main section input[type=button]:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    display: none;
+}
+
+
+#message {
+    text-align: center;
+    color: #0906ad;
+    font-weight: bold;
+}
+
+#message.error {
+    color: #d40000;
+}
+
+#message.success {
+    color: #0a913b;
+}
+
+
+body.win {
+    background-color: #333;
+}
+
+body.win .wrapper {
+    background-color: #888;
+}

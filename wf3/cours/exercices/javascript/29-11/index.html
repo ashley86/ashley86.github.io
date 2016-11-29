@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chifoumi</title>
+
+    <link rel="stylesheet" href="assets/css/normalize.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="css/fireworks.css" />
+
+</head>
+<body>
+
+    <div class="wrapper" id="game">
+
+        <header>
+            <h1>Chifoumi</h1>
+            <p>Le premier arrivé à 5, rafle la mise !!!</p>
+        </header>
+
+        <main>
+
+            <p id="message"></p>
+
+            <form action="#" name="chifoumi" id="chifoumi">
+
+                <section id="joueur">
+                    <h2>Joueur</h2>
+                    <input type="text" name="choixJoueur" id="choixJoueur" placeholder="Pierre, Feuille ou Ciseaux" autocomplete="off" />
+                    <span class="score">0</span>
+                </section>
+
+                <section id="ordinateur">
+                    <h2>Ordinateur</h2>
+                    <input type="text" name="choixOrdinateur" id="choixOrdinateur" disabled="disabled" placeholder="En attente..." />
+                    <span class="score">0</span>
+                </section>
+
+                <section id="btn">
+                    <input type="submit" name="submit" value="Valider" />
+                    <input type="button" name="recommencer" value="Recommencer" disabled="disabled" />
+                </section>
+
+            </form>
+
+        </main>
+
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle"><img src="img/particles.gif" alt="" /></div>
+    </div>
+    <div id="fireContainer"></div>
+
+
+    <script type="text/javascript" src="assets/js/jquery-2.2.4.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+
+    <script type="text/javascript" src="js/soundmanager2-nodebug-jsmin.js"></script>
+    <script type="text/javascript" src="js/fireworks.js"></script>
+</body>
+</html>
