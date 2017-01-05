@@ -1,3 +1,14 @@
+<?php
+
+    if( file_exists( 'modules.json' ) ) {
+        $file_module = file_get_contents( 'modules.json' );
+        $modules = json_decode($file_module);
+    } else {
+        $modules = false;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,18 +16,101 @@
     <title>Apolearn Modules</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     <style type="text/css">
-        a {
-            text-decoration: none;
-            color:#333;
-            font: 12px arial, sans-serif;
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+        }
+        td, th {
+            border:1px solid #333;
+            text-align: center;
+            padding: 5px 0;
+        }
+        td:nth-child(2) {
+            text-align: left;
+            text-indent: 20px;
+        }
+        td:last-child {
+            font-size: 20px;
+        }
+        th {
+            background-color: #999;
+        }
+        tr {
+            font: 14px arial, sans-serif;
+            background-color:#bbb;
+            color: #fff;
+        }
+        .success {
+            background-color:#468847;
+        }
+        .warn {
+            background-color: #ffcc88;
+            text-shadow: 1px 1px 0 rgba(0,0,0,.15);
         }
 
+        table a {
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+        }
         a:hover {
             text-decoration: underline;
         }
 
         a:visited {
-            color:#468847;
+            /*color:#468847;*/
+        }
+        a.link-show-all {
+            text-align: center;
+            display: block;
+        }
+
+
+        fieldset {
+            width: 40%;
+            margin: 30px auto;
+        }
+
+        fieldset div {
+            margin: 5px 0;
+        }
+        label {
+            width: 25%;
+            text-align: right;
+            display: inline-block;
+        }
+
+        input[type=text] {
+            width: 65%;
+            height: 20px;
+        }
+
+        input[type=submit] {
+            width: 150px;
+            margin: auto;
+            display: block;
+        }
+
+        .msg {
+            width: 60%;
+            color: #ffffff;
+            margin: 20px auto;
+            padding: 10px -0px;
+            text-align: center;
+        }
+
+        .menu {
+            width: 200px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border:1px solid #000;
+        }
+        .menu h1 {
+            text-align: center;
         }
     </style>
 </head>
@@ -25,11 +119,11 @@
 <script type="text/javascript">
 
 /*
-�	\xE0	&#224;	&agrave;;
-�	\xE8	&#232;	&egrave;
-�	\xE9	&#233;	&eacute;;
-�	\xEA	&#234;	&ecirc;
-�	\xF4	&#244;	&ocirc;
+�	\xE0	&#224;	&agrave;;
+�	\xE8	&#232;	&egrave;
+�	\xE9	&#233;	&eacute;;
+�	\xEA	&#234;	&ecirc;
+�	\xF4	&#244;	&ocirc;
 */
 
 
@@ -106,7 +200,7 @@
     {"done":true,"url":"http://wf3.apolearn.com/classroom/130163/player/13654","index":13654,"title":"Chemins relatifs et absolus"},
     {"done":true,"url":"http://wf3.apolearn.com/classroom/130163/player/13708","index":13708,"title":"Permissions"},
     {"done":true,"url":"http://wf3.apolearn.com/classroom/130163/player/13668","index":13668,"title":"Utilisation de \"root\""},
-    
+
     {"done":true,"url":"http://wf3.apolearn.com/classroom/130163/player/16748","index":"16748","title":"AJAX en jQuery"},
     {"done":true,"url":"http://wf3.apolearn.com/classroom/130163/player/16755","index":"16755","title":"AJAX"},
     {"done":true,"url":"http://wf3.apolearn.com/classroom/130163/player/16762","index":"16762","title":"Accessibilit&eacute; et ergonomie"},
@@ -222,12 +316,12 @@
 //document.write(courses);
 
 
-    for(var i in courses){
+    /*for(var i in courses){
         console.log(courses[i]);
         var icon = (courses[i].done) ? 'fa-check-square' : 'fa-square';
         var link = '<a href="'+courses[i].url+'"><i class="fa ' + icon + '" aria-hidden="true"></i> ' + courses[i].index + ' : ' + courses[i].title + '</a><br />';
         document.write(link);
-    }
+    }*/
 
 </script>
 <script type="text/javascript">
@@ -290,7 +384,279 @@ function runCourses(start){
     </div>
 </div>-->
 
+<?php
 
+# Cherche un index dans la liste des modules
+function search_id_modules($what){
+    global $modules;
+    foreach( $modules as $k => $v ){
+        if( $what === $v->index ) {
+            return $k;
+        }
+    }
+    return null;
+}
+
+# Retourne le nombre de total de modules actifs ou non
+function get_count_modules( $hide = false )
+{
+    global $modules;
+    if( $hide !== true ) {
+        $i = 0;
+        foreach( $modules as $mod )
+        {
+            if( $mod->hide === true ) continue;
+
+            $i++;
+        }
+        return $i;
+    } else {
+        return count( $modules );
+    }
+}
+
+# Retourne le nombre de total de modules finis
+function get_count_modules_finished()
+{
+    global $modules;
+    $i = 0;
+    foreach( $modules as $mod )
+    {
+        if( $mod->done !== true ) continue;
+
+        $i++;
+    }
+    return $i;
+}
+
+# Retourne la note moyenne
+function get_avg_scores()
+{
+    global $modules;
+    $i = 0;
+    $scores = 0;
+    foreach( $modules as $mod )
+    {
+        if( $mod->done !== true || $mod->score == 0 ) continue;
+
+        $i++;
+        $scores += $mod->score;
+    }
+    return round( $scores / $i, 2 );
+}
+
+# Dump style
+function d( $msg, $exit = false ){
+    echo '<pre>';
+    var_dump( $msg );
+    echo '</pre>';
+
+    if( $exit ) exit;
+}
+
+if( $modules )
+{
+    $add_form_insert = false;
+
+    if( isset( $_GET['add'] ) && ! empty ( $_POST['index'] ) && ! empty ( $_POST['title'] ) && isset ( $_POST['score'] ) )
+    {
+//        $index = search_id_modules( (int) $_POST['index'], $modules );
+//
+//        if( is_null( $index ) )
+//        {
+//            $old_mod = $modules[ $index ];
+//            $new_mod = (object) [
+//                'index' => (int) $_POST['index'],
+//                'title' => htmlentities(trim($_POST['title'])),
+//                'done'  => isset( $_POST['done'] ),
+//                'score' => (int) $_POST['score']
+//            ];
+//
+//            $modules[$index] = $new_mod;
+//
+//            file_put_contents( 'modules.json', json_encode( $modules ) );
+//        } else {
+//
+//        }
+
+
+        $mod_index = search_id_modules( (int) $_POST['index'] );
+        $checked_done = ( isset( $_POST['done'] ) ) ? 'checked="checked"' : '';
+        if( is_null( $mod_index ) )
+        {
+            $new_mod = (object) [
+                'index' => (int)$_POST['index'],
+                'title' => htmlentities(trim($_POST['title'])),
+                'done' => isset($_POST['done']),
+                'score' => (int)$_POST['score'],
+                'hide' => false
+            ];
+
+            array_push( $modules, $new_mod);
+
+            file_put_contents( 'modules.json', json_encode( $modules ) );
+
+            echo '<div class="msg success">Le module <strong>"' . $new_mod->title . '"</strong> (id:' . $new_mod->index . ') a bien été ajouté !</div>';
+
+            $add_form_insert = true;
+
+        } else {
+            echo '<div class="msg warn">L\'ID <strong>' . $index . '</strong> est déjà existant !</div>';
+        }
+    }
+    else if( isset( $_GET['edit'] ) && ! empty ( $_POST['index'] ) && ! empty ( $_POST['title'] ) && isset ( $_POST['score'] ) )
+    {
+        $index = search_id_modules( (int) $_POST['index'] );
+
+        if( ! is_null( $index ) )
+        {
+            $old_mod = $modules[ $index ];
+            $new_mod = (object) [
+                'index' => $old_mod->index,
+                'title' => htmlentities(trim($_POST['title'])),
+                'done'  => isset( $_POST['done'] ),
+                'score' => (int) $_POST['score'],
+                'hide' => $old_mod->hide
+            ];
+
+            $modules[$index] = $new_mod;
+
+            file_put_contents( 'modules.json', json_encode( $modules ) );
+
+            echo '<div class="msg success">Le module <strong>"' . $modules[$index]->title . '"</strong> (id:' . $old_mod->index . ') a bien été modifié !</div>';
+        }
+    }
+    else if( ! empty( $_GET['del'] ) && is_numeric( $_GET['del'] ) )
+    {
+        $index = search_id_modules( (int) $_GET['del'] );
+        if( ! is_null( $index ) )
+        {
+            $modules[$index]->hide = true;
+
+            file_put_contents( 'modules.json', json_encode( $modules ) );
+
+            echo '<div class="msg warn">Le module <strong>"' . $modules[$index]->title . '"</strong> (id:' . $index . ') a bien été supprimé !</div>';
+        }
+    }
+    else if( ! empty( $_GET['view'] ) && is_numeric( $_GET['view'] ) )
+    {
+        $index = search_id_modules( (int) $_GET['view'] );
+        if( ! is_null( $index ) )
+        {
+            $modules[$index]->hide = false;
+
+            file_put_contents( 'modules.json', json_encode( $modules ) );
+
+            echo '<div class="msg success">Le module <strong>"' . $modules[$index]->title . '"</strong> (id:' . $index . ') a bien été réintégré !</div>';
+        }
+    }
+
+    if( ( isset( $_GET['add'] ) && ! $add_form_insert ) || ( ! empty( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ) )
+    {
+        if( isset( $_GET['add'] ) )
+        {
+            $checked_done = '';
+            $readonly = '';
+            $link_action = 'add';
+            $legend = $btn = 'Ajouter';
+
+            if( ! empty( $_POST ) )
+            {
+                extract($_POST);
+                $checked_done = ( isset( $_POST['done'] ) ) ? 'checked="checked"' : '';
+            }
+        } else {
+            $mod_index = search_id_modules( (int) $_GET['edit'] );
+            $index = $modules[$mod_index]->index;
+            $title = $modules[$mod_index]->title;
+            $checked_done = ($modules[$mod_index]->done === true) ? 'checked="checked"' : '';
+            $score = $modules[$mod_index]->score;
+            $readonly = 'readonly="readonly"';
+            $link_action = 'edit';
+            $legend = $btn = 'Editer';
+        }
+
+        echo <<<FORM_EDIT
+<fieldset>
+    <legend>{$legend} un module</legend>
+    <form action="index.php?{$link_action}" method="post">
+        <div>
+            <label for="index">ID :</label>
+            <input type="text" name="index" id="index" value="{$index}" {$readonly} />
+        </div>
+        <div>
+            <label for="title">Titre :</label>
+            <input type="text" name="title" id="title" value="{$title}" />
+        </div>
+        <div>
+            <label for="done">Fini :</label>
+            <input type="checkbox" name="done" id="done" value="true" {$checked_done} />
+        </div>
+        <div>
+            <label for="score">Note (%) :</label>
+            <input type="text" name="score" id="score" value="{$score}" />
+        </div>
+
+        <input type="submit" value="{$btn}" />
+    </form>
+</fieldset>
+FORM_EDIT;
+
+    }
+
+
+
+    echo '<div class="menu">';
+    echo '<h1><a href="index.php">Modules Apolearn</a></h1>';
+    echo '<ul>';
+    if( isset( $_GET['show-all'] ) ){
+        echo '<li><a href="?">Voir seulement les modules actifs</a></li>';
+    } else {
+        echo '<li><a href="?show-all">Voir tous les modules</a></li>';
+    }
+    echo '<li><a href="?add">Ajouter un module</a></li>';
+//    echo '<li><a href=""></a></li>';
+    echo '</ul>';
+    echo 'Stats :';
+    echo '<ul>';
+    echo '<li>Total modules : ' . get_count_modules() . '</li>';
+    echo '<li>Total modules finis : ' . get_count_modules_finished() . '</li>';
+    echo '<li>Note moyenne : ' . get_avg_scores() . '%</li>';
+    echo '</ul>';
+    echo '</div>';
+
+    echo '<table>';
+    echo '<tr><th>ID</th><th>Titre</th><th>Fini</th><th>Score</th><th>Actions</th></tr>';
+
+    foreach( $modules as $module )
+    {
+        if( $module->hide && ! isset( $_GET['show-all'] ) ) { continue; }
+
+        $icon = ( $module->done ) ? 'fa-check-square' : 'fa-square';
+        $class = ( $module->done ) ? 'success' : '';
+        $class .= ( $module->hide ) ? ' warn' : '';
+        $user_id = 130163;
+
+        # URL : http://wf3.apolearn.com/classroom/130163/player/{MODULE_ID}
+
+        echo '<tr id="index-' . $module->index . '" class="' . $class . '">';
+        echo '<td>' . $module->index . '</td>';
+        echo '<td><a href="http://wf3.apolearn.com/classroom/' . $user_id . '/player/' . $module->index . '" target="_blank">' . $module->title . '</a></td>';
+        echo '<td><i class="fa ' . $icon . '" aria-hidden="true"></i></td>';
+        echo '<td>' . ( ( $module->score ) ? $module->score . '%' : '' ) . '</td>';
+        echo '<td>';
+        echo '   <a href="?edit=' . $module->index . '" title="Modifier"><i class="fa fa-edit" aria-hidden="true"></i></a>';
+        if( $module->hide ){
+            echo '   <a href="?show-all&view=' . $module->index . '" title="Réintégrer"><i class="fa fa-eye" aria-hidden="true"></i></a>';
+        } else {
+            echo '   <a href="?del=' . $module->index . '" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></a>';
+        }
+        echo '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+}
+?>
 
 </body>
 </html>
