@@ -41,6 +41,7 @@
             background-color:#bbb;
             color: #fff;
         }
+
         .success {
             background-color:#468847;
         }
@@ -405,7 +406,7 @@ function get_count_modules( $hide = false )
         $i = 0;
         foreach( $modules as $mod )
         {
-            if( $mod->hide === true ) continue;
+            if( isset( $mod->hide ) && $mod->hide === true ) continue;
 
             $i++;
         }
@@ -437,10 +438,10 @@ function get_avg_scores()
     $scores = 0;
     foreach( $modules as $mod )
     {
-        if( $mod->done !== true || $mod->score == 0 ) continue;
+        if( $mod->done !== true || ( isset( $mod->score ) && $mod->score == 0 ) ) continue;
 
         $i++;
-        $scores += $mod->score;
+        if( isset( $mod->score ) ) $scores += $mod->score;
     }
     return round( $scores / $i, 2 );
 }
@@ -460,26 +461,6 @@ if( $modules )
 
     if( isset( $_GET['add'] ) && ! empty ( $_POST['index'] ) && ! empty ( $_POST['title'] ) && isset ( $_POST['score'] ) )
     {
-//        $index = search_id_modules( (int) $_POST['index'], $modules );
-//
-//        if( is_null( $index ) )
-//        {
-//            $old_mod = $modules[ $index ];
-//            $new_mod = (object) [
-//                'index' => (int) $_POST['index'],
-//                'title' => htmlentities(trim($_POST['title'])),
-//                'done'  => isset( $_POST['done'] ),
-//                'score' => (int) $_POST['score']
-//            ];
-//
-//            $modules[$index] = $new_mod;
-//
-//            file_put_contents( 'modules.json', json_encode( $modules ) );
-//        } else {
-//
-//        }
-
-
         $mod_index = search_id_modules( (int) $_POST['index'] );
         $checked_done = ( isset( $_POST['done'] ) ) ? 'checked="checked"' : '';
         if( is_null( $mod_index ) )
@@ -630,11 +611,11 @@ FORM_EDIT;
 
     foreach( $modules as $module )
     {
-        if( $module->hide && ! isset( $_GET['show-all'] ) ) { continue; }
+        if( isset( $module->hide ) && $module->hide === true  && ! isset( $_GET['show-all'] ) ) { continue; }
 
         $icon = ( $module->done ) ? 'fa-check-square' : 'fa-square';
         $class = ( $module->done ) ? 'success' : '';
-        $class .= ( $module->hide ) ? ' warn' : '';
+        $class .= ( isset( $module->hide ) && $module->hide === true ) ? ' warn' : '';
         $user_id = 130163;
 
         # URL : http://wf3.apolearn.com/classroom/130163/player/{MODULE_ID}
@@ -643,16 +624,16 @@ FORM_EDIT;
         echo '<td>' . $module->index . '</td>';
         echo '<td><a href="http://wf3.apolearn.com/classroom/' . $user_id . '/player/' . $module->index . '" target="_blank">' . $module->title . '</a></td>';
         echo '<td><i class="fa ' . $icon . '" aria-hidden="true"></i></td>';
-        echo '<td>' . ( ( $module->score ) ? $module->score . '%' : '' ) . '</td>';
+        echo '<td>' . ( ( isset( $module->score ) && $module->score > 0 ) ? $module->score . '%' : '' ) . '</td>';
         echo '<td>';
         echo '   <a href="?edit=' . $module->index . '" title="Modifier"><i class="fa fa-edit" aria-hidden="true"></i></a>';
-        if( $module->hide ){
+        if( isset( $module->hide ) && $module->hide ){
             echo '   <a href="?show-all&view=' . $module->index . '" title="Réintégrer"><i class="fa fa-eye" aria-hidden="true"></i></a>';
         } else {
             echo '   <a href="?del=' . $module->index . '" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></a>';
         }
         echo '</td>';
-        echo '</tr>';
+//        echo '</tr>'; break;
     }
     echo '</table>';
 }
