@@ -25,8 +25,9 @@ $(document).ready(function(){
 
     var fw = null;
 
-    jeu.on('submit', function(e){
-        e.preventDefault();
+    jeu.on('submit', function(){
+        
+        event.preventDefault();
 
         if( partieTerminee ) {
             return;

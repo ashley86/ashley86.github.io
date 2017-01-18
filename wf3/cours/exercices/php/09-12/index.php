@@ -2,13 +2,12 @@
     // Inclusion de base
     require_once('./inc/init_session.inc.php');
 
-
     # Inclusion du contenu
     $include_page = './inc/tpl/connexion.tpl.php';
 
     if( isset( $_SESSION['connected'] ) && $_SESSION['connected'] === true )
     {
-        $include_page = './inc/tpl/index.tpl.php';
+        $include_page = './inc/tpl/home.tpl.php';
 
         if( ! empty($_GET['p']) )
         {
@@ -34,14 +33,17 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <title><?php echo SITE_NAME; ?></title>
+        <title><?php echo ( ! empty($page) ) ? ucfirst( $page ) . ' | ' : ''; ?><?php echo SITE_NAME; ?></title>
+
+        <!-- Fonts -->
+        <link href="/assets/css/lobster.fonts.css" media="screen" type="text/css" rel="stylesheet" />
 
         <!-- Base CSS -->
-        <link rel="stylesheet" href="assets/css/sticky-footer.css" media="screen" type="text/css" />
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/sticky-footer.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" media="screen" type="text/css" />
 
         <!-- Styles -->
-        <link rel="stylesheet" href="assets/css/styles.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/styles.css" media="screen" type="text/css" />
 
     </head>
     <body class="<?php echo (is_connected()) ? 'is-connected' : '' ?> <?php echo (is_admin()) ? 'is-admin' : '' ?>">
@@ -59,7 +61,7 @@
 
             <header>
                 <h1><?php echo ( ! empty($page) ) ? $page : SITE_NAME; ?></h1>
-                <p>Comment organiser son projet</p>
+                <p>Des Boolls, des petites Boolls, toujours des petites Boolls...</p>
             </header>
 
             <main>
@@ -67,26 +69,21 @@
     include_once( $include_page );
 ?>
 
+            </main>
+
 <?php
     # Gestion des erreurs
     include('./inc/errors.inc.php');
 ?>
-
-
-            </main>
             <div class="push"></div>
         </div> <!-- End .wrapper -->
 
-        <footer class="footer">
-            &copy; Ash - <?php echo date('Y'); ?>
-        </footer>
-
-        <!-- Fonts -->
-<!--        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />-->
+        <footer class="footer"></footer>
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="assets/js/jquery-2.2.4.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery-2.2.4.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/scripts.js"></script>
 
     </body>
 </html>

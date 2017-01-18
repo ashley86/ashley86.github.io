@@ -2,7 +2,7 @@
 # Le fichier doit être inclus
 if( ! session_id() ) exit;
 ?>
-<form class="form-horizontal col-md-4 col-md-offset-4" action="<?php echo SITE_URL; ?>/libs/services-products.php?a=add" method="post" enctype="multipart/form-data">
+<form class="form-horizontal col-md-4 col-md-offset-4" action="<?php echo SITE_URL; ?>sp/add/" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="product-ref" class="col-sm-4 control-label">Référence</label>
         <div class="col-sm-8">
@@ -43,7 +43,7 @@ if( ! session_id() ) exit;
         <label for="product-illustration" class="col-sm-4 control-label">Illustration</label>
         <div class="col-sm-8">
             <span class="btn btn-default btn-file">
-                Parcourir <input type="file" name="product-illustration" class="form-control" id="product-illustration" accept="image/jpeg" />
+                Parcourir <input type="file" name="product-illustration" class="form-control" id="product-illustration" accept="image/*" />
             </span>
         </div>
     </div>

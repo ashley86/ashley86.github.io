@@ -1,0 +1,40 @@
+#Options +FollowSymlinks
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+
+	# Produits
+	RewriteRule	^/sp/([a-z]+)(\/?)$  /libs/services-products.php?a=$1	[L]
+	RewriteRule	^/sp/([a-z]+)/err-([0-9]+)(\/?)$  /libs/services-products.php?a=$1&err=$2	[L]
+	RewriteRule	^/sp/([a-z]+)/err-([0-9]+)(\/?)$  /libs/services-products.php?a=$1&err=$2	[L]
+	
+	# Users
+	RewriteRule	^/su/([a-z]+)(\/?)$  /libs/services-users.php?a=$1	[L]
+	RewriteRule	^/su/([a-z]+)/err-([0-9]+)(\/?)$  /libs/services-users.php?a=$1&err=$2	[L]
+	RewriteRule	^/su/([a-z]+)/msg-([0-9]+)(\/?)$  /libs/services-users.php?a=$1&msg=$2	[L]
+	
+	# Orders
+	RewriteRule	^/so/([a-z]+)(\/?)$  /libs/services-orders.php?a=$1	[L]
+	RewriteRule	^/so/([a-z]+)/err-([0-9]+)(\/?)$  /libs/services-orders.php?a=$1&err=$2	[L]
+	RewriteRule	^/so/([a-z]+)/msg-([0-9]+)(\/?)$  /libs/services-orders.php?a=$1&msg=$2	[L]
+	
+	# General
+	RewriteRule	^/err-([0-9]+)(\/?)$  /index.php?err=$1	[L]
+	RewriteRule	^/msg-([0-9]+)(\/?)$  /index.php?msg=$1	[L]
+	RewriteRule	^/conn-([0-1]+)(\/?)$ /index.php?conn=$1	[L]
+	
+	RewriteRule	^/([a-z]+)(\/?)$  /index.php?p=$1	[L]
+	RewriteRule	^/([a-z]+)/err-([0-9]+)(\/?)$  /index.php?p=$1&err=$2	[L]
+	RewriteRule	^/([a-z]+)/msg-([0-9]+)(\/?)$  /index.php?p=$1&msg=$2	[L]	
+	
+	RewriteRule	^/([a-z]+)/([a-z]+)(\/?)$  /index.php?p=$1&a=$2   [L]
+	RewriteRule	^/([a-z]+)/([a-z]+)/err-([0-9]+)(\/?)$  /index.php?p=$1&a=$2&err=$3	[L]
+	RewriteRule	^/([a-z]+)/([a-z]+)/msg-([0-9]+)(\/?)$  /index.php?p=$1&a=$2&msg=$3	[L]
+	
+	RewriteRule	^/([a-z]+)/([a-z]+)/([0-9]+)(\/?)$  /index.php?p=$1&a=$2&id=$3   [L]
+	RewriteRule	^/([a-z]+)/([a-z]+)/([0-9]+)/err-([0-9]+)(\/?)$  /index.php?p=$1&a=$2&id=$3&err=$4	[L]
+	RewriteRule	^/([a-z]+)/([a-z]+)/([0-9]+)/msg-([0-9]+)(\/?)$  /index.php?p=$1&a=$2&id=$3&msg=$4	[L]
+</IfModule>

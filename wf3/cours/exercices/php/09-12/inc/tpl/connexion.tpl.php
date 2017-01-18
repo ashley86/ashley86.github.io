@@ -7,7 +7,7 @@
     <h2 class="text-center">Connexion</h2>
 
 
-    <form class="form-horizontal" action="./libs/services-users.php?a=login" method="post">
+    <form class="form-horizontal" action="<?php echo SITE_URL ?>su/login/" method="post">
         <div class="form-group">
             <label for="user-email" class="col-sm-4 control-label">Login</label>
             <div class="col-sm-8">

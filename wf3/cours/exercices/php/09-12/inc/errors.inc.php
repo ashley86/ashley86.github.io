@@ -42,15 +42,31 @@ if( isset($_GET['err']) || isset($_GET['conn']) || isset($_GET['msg']) )
             {
                 case '0':
                     $message['message'] = 'Le produit à bien été ajouté !';
-                    $message['message'] .= ' <a href="'.SITE_URL.'/?p=products&a=add">Ajouter un nouveau produit</a>';
+                    $message['message'] .= ' <a href="' . SITE_URL . 'products/add/">Ajouter un nouveau produit</a>';
                     break;
 
                 case '1':
-                    $message['message'] = 'Le produit à bien été modifié !';
+                    $message['message'] = 'Le produit a bien été modifié !';
                     break;
 
                 case '2':
-                    $message['message'] = 'Le produit à bien été supprimé !';
+                    $message['message'] = 'Le produit a bien été supprimé !';
+                    break;
+
+                case '3':
+                    $message['message'] = "L'utilisateur a bien été modifié";
+                    break;
+
+                case '4':
+                    $message['message'] = "L'utilisateur a bien été ajouté";
+                    break;
+
+                case '5':
+                    $message['message'] = "L'utilisateur a bien été supprimé";
+                    break;
+
+                case '6':
+                    $message['message'] = "Cet utilisateur n'existe pas";
                     break;
 
                 default:
@@ -63,7 +79,7 @@ if( isset($_GET['err']) || isset($_GET['conn']) || isset($_GET['msg']) )
 
 if( ! empty($message['message']) ) {
     ?>
-    <div class="col-md-6 col-md-offset-3">
+    <div id="box-error">
         <div class="alert alert-<?php echo $message['type']; ?> text-center">
             <strong><?php echo $message['message']; ?></strong>
         </div>

@@ -6,7 +6,7 @@
 
     if( empty($_GET['id']) )
     {
-        header('Location: ' . SITE_URL . '?p=products&err=0');
+        header('Location: ' . SITE_URL . 'products/err-0/');
         exit;
     }
 
@@ -16,12 +16,12 @@
 
     if( ! $product_id )
     {
-        header('Location: ' . SITE_URL . '/?p=produits&err=0');
+        header('Location: ' . SITE_URL . 'produits/err-0/');
         exit;
     }
 
 ?>
-<form class="form-horizontal col-md-4 col-md-offset-4" action="<?php echo SITE_URL; ?>/libs/services-products.php?a=edit" method="post" enctype="multipart/form-data">
+<form class="form-horizontal col-md-4 col-md-offset-4" action="<?php echo SITE_URL; ?>sp/edit" method="post" enctype="multipart/form-data">
 <?php
     if (isset($product_id)) {
         echo '<input type="hidden" name="product-id" value="' . $product_id . '">';
@@ -64,7 +64,7 @@
         <label for="product-illustration" class="col-sm-4 control-label">Illustration</label>
         <div class="col-sm-8">
             <span class="btn btn-default btn-file">
-                Parcourir <input type="file" name="product-illustration" class="form-control" id="product-illustration" accept="image/jpeg" />
+                Parcourir <input type="file" name="product-illustration" class="form-control" id="product-illustration" accept="image/*" />
             </span>
         </div>
     </div>

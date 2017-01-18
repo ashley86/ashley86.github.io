@@ -4,7 +4,7 @@
 
     require_once( './inc/tools/products.inc.php');
 
-    view_products();
+    view_products( false, true);
 
 
 

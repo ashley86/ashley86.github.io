@@ -8,6 +8,6 @@ if( ! is_admin() )
     exit;
 }
 
-require_once './inc/tools/users.inc.php';
+require_once( 'inc/tools/users.inc.php' );
 
-require_once('form.tpl.php');
+view_users();

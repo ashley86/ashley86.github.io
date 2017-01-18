@@ -4,7 +4,9 @@
 
     require_once( './inc/tools/users.inc.php');
 
-    view_my_profil();
+    extract(view_profile());
+
+    require_once('users/form.tpl.php');
 
 
 

@@ -4,7 +4,7 @@
 session_start();
 
 # Tools
-require_once(dirname(__FILE__) . './tools.inc.php');
+require_once(dirname(__FILE__) . './tools.inc.php'); // utils
 
 # Inclusion du fichier de configuration
 require_once(dirname(__FILE__) . './configuration.inc.php');

@@ -4,7 +4,7 @@ if( ! session_id() ) exit;
 
 if( empty($_GET['id']) )
 {
-    header('Location: ' . SITE_URL . '?p=products&err=0');
+    header('Location: ' . SITE_URL . 'products/err-0/');
     exit;
 }
 ?>

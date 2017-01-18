@@ -1,9 +1,45 @@
 <?php
 
-    // Affiche le profil de l'utilisateur courant
-    function view_my_profile()
-    {
 
+    // Verification des identifiants
+    function verifConnect($login, $password)
+    {
+        global $sql_conn;
+
+        // Requête SQL pour tester l'utilisateur qui essaie de se connecter est connu ET est de type admin
+        $sql = "SELECT * FROM users WHERE user_email = '" . $login . "'";
+
+        $q = mysqli_query( $sql_conn, $sql ) or die( mysqli_error($sql_conn) ) ;
+
+        if(mysqli_num_rows($q) === 1) {
+            while ($resp = mysqli_fetch_assoc($q))
+            {
+                if( password_verify($password, $resp['user_password']) ) {
+                    return $resp;
+                } else return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    // Affiche le profil de l'utilisateur courant
+    function view_profile($user_id = false)
+    {
+        global $sql_conn;
+
+        $user_id = ( ! $user_id ) ? $_SESSION['user_id'] : $user_id;
+
+        $sql = 'SELECT * FROM users WHERE user_id = ' . $user_id;
+
+        $q = mysqli_query($sql_conn, $sql);
+
+        if( mysqli_num_rows($q) === 1 ) {
+
+            $r = mysqli_fetch_all($q, MYSQLI_ASSOC);
+           // extract($r[0]);
+            return $r[0];
+        }
     }
 
     // Selectionne un ou les produits
@@ -14,15 +50,15 @@
         if($users)
         {
 ?>
-        <table>
+        <table class="users">
             <thead>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>E-mail</th>
-            <th>Type</th>
-            <?php if( is_admin() ): ?>
-            <th>Actions</th>
-            <?php endif; ?>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>E-mail</th>
+                <th>Type</th>
+                <?php if( is_admin() ): ?>
+                <th>Actions</th>
+                <?php endif; ?>
             </thead>
             <tbody>
             <?php
@@ -36,8 +72,8 @@
                 echo    "<td>{$user['user_type']}</td>";
                 if( is_admin() ) {
                     echo '<td>' .
-                        '<a href="index.php?p=users&a=edit&id=' . $user_id . '"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>' .
-                        ' <a href="' . SITE_URL . 'libs/services-users.php?a=delete&id=' . $user_id . '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>' .
+                        '<a href="/users/edit/' . $user_id . '/"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>' .
+                        ' <a href="' . SITE_URL . 'libs/services-users.php?a=delete&id=' . $user_id . '" class="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>' .
                         '</td>';
                 }
                 echo '</tr>';
@@ -67,18 +103,11 @@
         {
             while ($resp = mysqli_fetch_assoc($q))
             {
-                if( $users )
-                {
-                    $users['user_id'] = $resp['user_id'];
-                    $users['user_firstname'] = $resp['user_firstname'];
-                    $users['user_lastname'] = $resp['user_lastname'];
-                    $users['user_type'] = $resp['user_type'];
-                } else {
-                    $users[$resp['user_id']]['user_id'] = $resp['user_id'];
-                    $users[$resp['user_id']]['user_firstname'] = $resp['user_firstname'];
-                    $users[$resp['user_id']]['user_lastname'] = $resp['user_lastname'];
-                    $users[$resp['user_id']]['user_type'] = $resp['user_type'];
-                }
+                $users[$resp['user_id']]['user_id'] = $resp['user_id'];
+                $users[$resp['user_id']]['user_firstname'] = $resp['user_firstname'];
+                $users[$resp['user_id']]['user_lastname'] = $resp['user_lastname'];
+                $users[$resp['user_id']]['user_email'] = $resp['user_email'];
+                $users[$resp['user_id']]['user_type'] = $resp['user_type'];
             }
         }
 
@@ -86,12 +115,18 @@
     }
 
 
-    // Ajoute un produit
-    function product_add($ref, $label, $price, $description, $stock)
+    // Ajoute un utilisateur
+    function user_add($user_firstname, $user_lastname, $user_email, $user_type, $user_pwd)
     {
         global $sql_conn;
 
-        $sql = "INSERT INTO products (product_ref, product_label, product_description, product_price, product_stock) VALUES( '{$ref}', '{$label}', '{$description}', '{$price}', '{$stock}' )";
+        $user_firstname = mysqli_real_escape_string( $sql_conn, htmlentities( $user_firstname ) );
+        $user_lastname = mysqli_real_escape_string( $sql_conn, htmlentities( $user_lastname ) );
+        $user_email = mysqli_real_escape_string( $sql_conn, htmlentities( $user_email ) );
+        $user_type = mysqli_real_escape_string( $sql_conn, htmlentities( $user_type ) );
+        $user_pwd = password_hash( $user_pwd, PASSWORD_BCRYPT );
+
+        $sql = "INSERT INTO users (user_firstname, user_lastname, user_email, user_type, user_password) VALUES('" . $user_firstname . "', '" . $user_lastname . "', '" . $user_email . "', '" . $user_type . "', '" . $user_pwd . "')";
 
         $q = mysqli_query($sql_conn, $sql) or die(mysqli_error($sql_conn));
 
@@ -111,11 +146,19 @@
 
 
     // Editer un produit
-    function product_edit($id, $ref, $label, $price, $description, $stock)
+    function user_edit($user_id, $user_firstname, $user_lastname, $user_email, $user_type)
     {
         global $sql_conn;
 
-        $sql = "UPDATE products SET product_ref = '{$ref}', product_label = '{$label}', product_description = '{$description}', product_price = '{$price}', product_stock = '{$stock}' WHERE product_id = '{$id}'";
+        $user_id = mysqli_real_escape_string( $sql_conn, htmlentities( $user_id ) );
+        $user_firstname = mysqli_real_escape_string( $sql_conn, htmlentities( $user_firstname ) );
+        $user_lastname = mysqli_real_escape_string( $sql_conn, htmlentities( $user_lastname ) );
+        $user_email = mysqli_real_escape_string( $sql_conn, htmlentities( $user_email ) );
+        $user_type = ( ! is_null( $user_type ) ) ? mysqli_real_escape_string( $sql_conn, htmlentities( $user_type ) ) : null;
+
+        $sql_user_type = ( ! is_null( $user_type ) ) ? ", user_type = '" . $user_type . "'" : '';
+
+        $sql = "UPDATE users SET user_firstname = '" . $user_firstname . "', user_lastname = '" . $user_lastname . "', user_email = '" . $user_email . "'" . $sql_user_type . " WHERE user_id = " . $user_id;
 
         $q = mysqli_query($sql_conn, $sql) or die(mysqli_error($sql_conn));
 
@@ -123,114 +166,40 @@
     }
 
     // Supprimer un produit
-    function product_delete($id)
+    function user_delete($id)
     {
         global $sql_conn;
 
-        $sql = "DELETE FROM products WHERE product_id = '{$id}'";
+        $sql = "DELETE FROM users WHERE user_id = '{$id}'";
 
         $q = mysqli_query($sql_conn, $sql) or die(mysqli_error($sql_conn));
 
         return true;
     }
 
-    // Ajoute une image
-    function createImage($product_id, $img_name, $file)
+
+    # Retourne les types d'utilisateurs
+    function get_user_types($user_type = false)
     {
-        $dir_img_big = $_SERVER['DOCUMENT_ROOT'] . '/' . PRODUCTS_IMG_DIR;
-        $dir_img_th = $_SERVER['DOCUMENT_ROOT'] . '/' . PRODUCTS_IMG_THUMB_DIR;
+        global $sql_conn;
 
-        if( file_exists($dir_img_big) && is_dir($dir_img_big) && ! file_exists( $dir_img_big . '/' . $img_name ) )
+        $q = mysqli_query($sql_conn, "SHOW COLUMNS FROM users WHERE Field = 'user_type'");
+        $resp = mysqli_fetch_all($q);
+
+        foreach($resp[0] as $r)
         {
-            if( move_uploaded_file($file['product-illustration']['tmp_name'], $dir_img_big . '/' . $img_name ) ) {
+            if(strpos($r, 'enum') !== FALSE)
+            {
+                preg_match("/^enum\(\'(.*)\'\)$/", $r, $matches);
+                $enum = preg_split("/','/", $matches[1]);
 
-                createThumbnail($img_name, 50, 50, $dir_img_big, $dir_img_th);
+                foreach($enum as $elt)
+                {
+                    $selected = ( $user_type !== FALSE && $user_type === $elt ) ? 'selected="selected"' : '';
+                    echo '<option value="' . $elt . '" ' . $selected . '>' . ucfirst($elt) . '</option>';
+                }
 
-                product_set_image($product_id, $img_name);
-
-                echo "File is valid, and was successfully uploaded.\n";
-            } else {
-                echo "Possible file upload attack!\n";
+                break;
             }
-
-        } else {
-            echo 'pb file';
         }
-    }
-
-    // Génère une image miniature
-    function createThumbnail($image_name,$new_width,$new_height,$uploadDir,$moveToDir)
-    {
-        $path = $uploadDir . '/' . $image_name;
-
-        $mime = getimagesize($path);
-
-        if($mime['mime']=='image/png'){ $src_img = imagecreatefrompng($path); }
-        if($mime['mime']=='image/jpg'){ $src_img = imagecreatefromjpeg($path); }
-        if($mime['mime']=='image/jpeg'){ $src_img = imagecreatefromjpeg($path); }
-        if($mime['mime']=='image/pjpeg'){ $src_img = imagecreatefromjpeg($path); }
-
-        $old_x          =   imageSX($src_img);
-        $old_y          =   imageSY($src_img);
-
-        if($old_x > $old_y)
-        {
-            $thumb_w    =   $new_width;
-            $thumb_h    =   $old_y*($new_height/$old_x);
-        }
-
-        if($old_x < $old_y)
-        {
-            $thumb_w    =   $old_x*($new_width/$old_y);
-            $thumb_h    =   $new_height;
-        }
-
-        if($old_x == $old_y)
-        {
-            $thumb_w    =   $new_width;
-            $thumb_h    =   $new_height;
-        }
-
-        $dst_img        =   ImageCreateTrueColor($thumb_w,$thumb_h);
-
-        imagecopyresampled($dst_img,$src_img,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
-
-
-        // New save location
-        $new_thumb_loc = $moveToDir . '/' . $image_name;
-
-        if($mime['mime']=='image/png'){ $result = imagepng($dst_img,$new_thumb_loc,8); }
-        if($mime['mime']=='image/jpg'){ $result = imagejpeg($dst_img,$new_thumb_loc,80); }
-        if($mime['mime']=='image/jpeg'){ $result = imagejpeg($dst_img,$new_thumb_loc,80); }
-        if($mime['mime']=='image/pjpeg'){ $result = imagejpeg($dst_img,$new_thumb_loc,80); }
-
-        imagedestroy($dst_img);
-        imagedestroy($src_img);
-
-        return $result;
-    }
-
-    // Édite une image
-    function editImage($product_id, $img_name, $file)
-    {
-        $dir_img_big = $_SERVER['DOCUMENT_ROOT'] . '/' . PRODUCTS_IMG_DIR;
-        $dir_img_th = $_SERVER['DOCUMENT_ROOT'] . '/' . PRODUCTS_IMG_THUMB_DIR;
-
-        // Suppresion du fichier BIG
-        if( file_exists($dir_img_big .'/'. $img_name) ) {
-            echo 'dfsfds';
-            unlink($dir_img_big .'/'. $img_name);
-        }
-
-        // Suppresion du fichier miniature
-        if( file_exists($dir_img_th .'/'. $img_name) ) {
-            echo 'pouet';
-            unlink($dir_img_th .'/'. $img_name);
-        }
-        d($dir_img_big .'/'. $img_name);
-        d($dir_img_th .'/'. $img_name);
-
-        // Ajout de la nouvelle image
-        createImage($product_id, $img_name, $file);
-
     }

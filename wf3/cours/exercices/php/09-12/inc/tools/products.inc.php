@@ -1,58 +1,66 @@
 <?php
 
     // Selectionne un ou les produits
-    function view_products($product_id = false)
+    function view_products($product_id = false, $show_add_product_btn = false)
     {
-    $products = get_products($product_id);
+        $products = get_products($product_id);
 
-    if($products)
-    {
-?>
-    <table>
-        <thead>
-        <th>Image</th>
-        <th>Référence</th>
-        <th>Libellé</th>
-        <th>Description</th>
-        <th>Prix</th>
-        <th>Stock</th>
-        <?php if( is_admin() ): ?>
-        <th>Actions</th>
-        <?php endif; ?>
-        </thead>
-        <tbody>
-        <?php
-        foreach($products as $product_id => $product)
+        if($products)
         {
-
-            echo '<tr>';
-            if( ! is_null($product['product_illustration'] ) )
+    ?>
+        <table class="products">
+            <thead>
+                <th>Image</th>
+                <th>Référence</th>
+                <th>Libellé</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <?php if( is_admin() ): ?>
+                <th>Actions</th>
+                <?php endif; ?>
+            </thead>
+            <tbody>
+            <?php
+            foreach($products as $product_id => $product)
             {
-                $reload_cache = time(); // Force à reload le cache
-                echo    "<td><img src=\"assets/img/produits/th/{$product['product_illustration']}?t={$reload_cache}\" alt=\"Produits ref {$product['product_ref']}\" /></td>";
-            } else {
-                echo    "<td></td>";
-            }
-            echo    "<td>{$product['product_ref']}</td>";
-            echo    "<td>{$product['product_label']}</td>";
-            echo    "<td>{$product['product_description']}</td>";
-            echo    "<td>{$product['product_price']}</td>";
-            echo    "<td>{$product['product_stock']}</td>";
-            if( is_admin() ) {
-                echo '<td>' .
-                    '<a href="index.php?p=products&a=edit&id=' . $product_id . '"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>' .
-                    ' <a href="' . SITE_URL . 'libs/services-products.php?a=delete&id=' . $product_id . '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>' .
-                    '</td>';
-            }
-            echo '</tr>';
-        }
-        ?>
-        </tbody>
-    </table>
-<?php
-    }
 
-    return true;
+                echo '<tr>';
+                if( ! is_null($product['product_illustration'] ) )
+                {
+                    $reload_cache = time(); // Force à reload le cache
+                    echo    "<td><img src=\"/assets/img/produits/th/{$product['product_illustration']}?t={$reload_cache}\" alt=\"Produits ref {$product['product_ref']}\" /></td>";
+                } else {
+                    echo    "<td></td>";
+                }
+                echo    "<td>{$product['product_ref']}</td>";
+                echo    "<td>{$product['product_label']}</td>";
+                echo    "<td>{$product['product_description']}</td>";
+                echo    "<td>{$product['product_price']}</td>";
+                echo    "<td>{$product['product_stock']}</td>";
+                if( is_admin() ) {
+                    echo '<td>' .
+                        '<a href="/products/edit/' . $product_id . '/"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>' .
+                        ' <a href="' . SITE_URL . 'libs/services-products.php?a=delete&id=' . $product_id . '" class="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>' .
+                        '</td>';
+                }
+                echo '</tr>';
+            }
+            ?>
+            </tbody>
+        </table>
+    <?php
+        } else {
+            $message['type'] = "danger";
+            $message['message'] = "Il n'y aucun produit dans la base de données";
+        }
+
+        if( $show_add_product_btn )
+        {
+            echo '<div class="text-center"><a href="/products/add/" class="btn btn-info">Ajouter un produit</a></div>';
+        }
+
+        return true;
     }
 
     // Retour un ou plusieurs produits
@@ -115,7 +123,7 @@
         $sql = "UPDATE products SET product_illustration = '$img_name' WHERE product_id = {$product_id}";
 
         $q = mysqli_query( $sql_conn, $sql );
-
+d($q);
         return $q;
     }
 
@@ -203,6 +211,11 @@
 
         $dst_img        =   ImageCreateTrueColor($thumb_w,$thumb_h);
 
+        if($mime['mime']=='image/png') {
+            imagealphablending($dst_img, false);
+            imagesavealpha($dst_img, true);
+        }
+
         imagecopyresampled($dst_img,$src_img,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
 
 
@@ -228,19 +241,26 @@
 
         // Suppresion du fichier BIG
         if( file_exists($dir_img_big .'/'. $img_name) ) {
-            echo 'dfsfds';
             unlink($dir_img_big .'/'. $img_name);
         }
 
         // Suppresion du fichier miniature
         if( file_exists($dir_img_th .'/'. $img_name) ) {
-            echo 'pouet';
             unlink($dir_img_th .'/'. $img_name);
         }
-        d($dir_img_big .'/'. $img_name);
-        d($dir_img_th .'/'. $img_name);
+//        d($dir_img_big .'/'. $img_name);
+//        d($dir_img_th .'/'. $img_name);
 
         // Ajout de la nouvelle image
         createImage($product_id, $img_name, $file);
+    }
 
+    // Retourne l'extension du fichier
+    function get_file_type($file)
+    {
+        $authorized_image_type = ['jpg', 'jpeg', 'png'];
+
+        $file_type = preg_split('/\//',$_FILES['product-illustration']['type'])[1];
+
+        return ( ! in_array( $file_type, $authorized_image_type ) ) ? '.jpg' : '.' . $file_type;
     }

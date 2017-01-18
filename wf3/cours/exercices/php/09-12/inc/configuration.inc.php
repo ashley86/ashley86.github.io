@@ -1,7 +1,7 @@
 <?php
 
     # Nom du site
-    define('SITE_NAME', 'Projet PHP');
+    define('SITE_NAME', 'Booll\'s');
 
     # URL du site
     define('SITE_URL', 'http://projet-php.ash/');
@@ -14,3 +14,9 @@
 
     # Chemin vers le dossier d'images vignettes des produits
     define('PRODUCTS_IMG_THUMB_DIR', 'assets/img/produits/th');
+
+    # Connexion BDD
+    define('BDD_HOST',  'localhost');
+    define('BDD_DB',    'projet_php');
+    define('BDD_USER',  'projet_php');
+    define('BDD_PWD',   'projet_php');

@@ -1,66 +1,12 @@
 <?php
 
     require_once(dirname(__FILE__) . '/../inc/init_session.inc.php');
-    require_once(dirname(__FILE__) . '/../inc/tools/users.inc.php');
+    require_once(dirname(__FILE__) . '/../inc/tools/orders.inc.php');
 
     if (isset($_GET['a']) && $_GET['a'] != '')
     {
         switch($_GET['a'])
         {
-            # L'utilisateur veut se connecter
-            case 'login':
-
-                # Si les champs n'ont pas été remplis
-                if( empty($_POST['user-email']) || empty($_POST['user-pwd']) )
-                {
-                    # Redirection vers la home
-                    header('Location: ' . SITE_URL . 'err-1/');
-                    exit;
-                }
-
-                # Parsing des identifiants
-                $login = htmlentities(trim($_POST['user-email']));
-                $pwd = $_POST['user-pwd'];
-
-                # On vérifie les identifiants
-                $resp_conn = verifConnect($login,$pwd);
-
-                # Si la connexion à échoué
-                if( $resp_conn === false )
-                {
-                    # Redirection vers la home
-                    header('Location: ' . SITE_URL . 'err-2/');
-                    exit;
-                }
-
-                # Si on n'est pas redirigé, on connecte l'utilisateur
-                $_SESSION['connected'] = true;
-                $_SESSION['user_id'] = (int) $resp_conn['user_id'];
-                $_SESSION['user_email'] = $resp_conn['user_email'];
-                $_SESSION['user_firstname'] = $resp_conn['user_firstname'];
-                $_SESSION['user_lastname'] = $resp_conn['user_lastname'];
-                $_SESSION['user_type'] = $resp_conn['user_type'];
-
-                # Redirection vers la home
-                header('Location: ' . SITE_URL . 'conn-1/');
-                exit;
-
-            break;
-
-            # L'utilisateur veut se déconnecter
-            case 'disconnect':
-
-                # On détruit la session, ce qui aura
-                # pour conséquence de supprimer toutes les variables de session
-                # et donc de nous déconnecter
-                session_destroy();
-
-                # Redirection vers la home
-                header('Location: ' . SITE_URL . 'conn-0/');
-                exit;
-
-            break;
-
             # Ajoute un utilisateur
             case 'add':
                 if( ! empty($_POST['user-firstname']) && ! empty($_POST['user-lastname']) && ! empty($_POST['user-email']) && ! empty($_POST['user-type']) && ! empty($_POST['user-password']) )
@@ -72,9 +18,9 @@
                     $user_password = $_POST['user-password'];
                     $new_user_id = user_add( $user_firstname, $user_lastname, $user_email, $user_type, $user_password);
 
-                    if( is_int( $new_user_id ) )
+                    if( is_int($new_user_id) )
                     {
-                        header('Location: ' . SITE_URL . 'users/list/msg-4/');
+                        header('Location: ' . SITE_URL . 'users/edit/' . $new_user_id . '/msg-4/');
                         exit;
                     } else {
                         header('Location: ' . SITE_URL . 'users/msg-0/');
@@ -138,12 +84,12 @@
             # L'utilisateur ne sait pas ce qu'il veut... Nous non plus !
             default:
                 # Redirection vers la home
-                header('Location: index.php');
+                header('Location: ' . SITE_URL . 'err-0/');
                 exit;
             break;
         }
     } else {
         # Redirection vers la home
-        header('Location: ' . SITE_URL . 'err-0/');
+        header('Location: ' . SITE_URL . '?err=0');
         exit;
     }
