@@ -25,8 +25,7 @@ class Moto extends Vehicule
 
     public function getVitesseMax()
     {
-        $parentVitesseMax = parent::getVitesseMax();
-        return $parentVitesseMax += 60;
+        return parent::getVitesseMax() + 60;
     }
 }
 
@@ -39,8 +38,7 @@ class Voiture extends Vehicule
 
     public function getVitesseMax()
     {
-        $parentVitesseMax = parent::getVitesseMax();
-        return $parentVitesseMax += 30;
+        return parent::getVitesseMax() + 30;
     }
 }
 
