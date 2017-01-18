@@ -4,10 +4,10 @@
 session_start();
 
 # Tools
-require_once(dirname(__FILE__) . './tools.inc.php');
+require_once( 'inc/tools.inc.php');
 
 # Inclusion du fichier de configuration
-require_once(dirname(__FILE__) . './configuration.inc.php');
+require_once( 'inc/configuration.inc.php');
 
 # Inclusion de la connexion
-require_once(dirname(__FILE__) . './connexion.inc.php');
+require_once( 'inc/connexion.inc.php');

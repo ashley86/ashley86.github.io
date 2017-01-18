@@ -16,13 +16,13 @@
     else
     {
         $sql_server = 'localhost';
-        $sql_user = 'root';
-        $sql_pwd = '';
+        $sql_user = 'projet_php';
+        $sql_pwd = 'projet_php';
         $sql_db = 'projet_php';
     }
 
     # Connexion au serveur
-    $sql_conn = mysqli_connect($sql_server, $sql_user) or die('Erreur de connexion au serveur... <br /> ' . mysqli_connect_error() );
+    $sql_conn = mysqli_connect($sql_server, $sql_user, $sql_pwd) or die('Erreur de connexion au serveur... <br /> ' . mysqli_connect_error() );
 
     # Connexion à la BDD
     mysqli_select_db( $sql_conn, $sql_db) or die('Erreur de connexion à la BDD <br /> ' . mysqli_error($sql_conn));

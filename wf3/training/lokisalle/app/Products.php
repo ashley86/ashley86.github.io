@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    public function rooms()
+    public function room()
     {
-        return $this->hasMany( Rooms::class );
+        return $this->belongsTo( Rooms::class );
     }
 }

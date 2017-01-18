@@ -1,7 +1,7 @@
 <?php
-    // Inclusion de base
-    require_once('./inc/init_session.inc.php');
 
+    // Inclusion de base
+    require_once('inc/init_session.inc.php');
 
     # Inclusion du contenu
     $include_page = './inc/tpl/connexion.tpl.php';
@@ -26,7 +26,6 @@
 
         $include_page = ( ! empty($include_page) ) ? $include_page : 'home';
     }
-
 
 ?>
 

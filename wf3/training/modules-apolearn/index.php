@@ -1,5 +1,4 @@
 <?php
-
     if( file_exists( 'modules.json' ) ) {
         $file_module = file_get_contents( 'modules.json' );
         $modules = json_decode($file_module);
@@ -615,6 +614,7 @@ FORM_EDIT;
 
         $icon = ( $module->done ) ? 'fa-check-square' : 'fa-square';
         $class = ( $module->done ) ? 'success' : '';
+        $lnk_is_done = ( $module->done ) ? 'true' : 'false';
         $class .= ( isset( $module->hide ) && $module->hide === true ) ? ' warn' : '';
         $user_id = 130163;
 
@@ -622,7 +622,7 @@ FORM_EDIT;
 
         echo '<tr id="index-' . $module->index . '" class="' . $class . '">';
         echo '<td>' . $module->index . '</td>';
-        echo '<td><a href="http://wf3.apolearn.com/classroom/' . $user_id . '/player/' . $module->index . '" target="_blank">' . $module->title . '</a></td>';
+        echo '<td><a class="apolink" data-done="' . $lnk_is_done . '" data-index="' . $module->index . '" href="http://wf3.apolearn.com/classroom/' . $user_id . '/player/' . $module->index . '" target="_blank">' . $module->title . '</a></td>';
         echo '<td><i class="fa ' . $icon . '" aria-hidden="true"></i></td>';
         echo '<td>' . ( ( isset( $module->score ) && $module->score > 0 ) ? $module->score . '%' : '' ) . '</td>';
         echo '<td>';
@@ -633,11 +633,23 @@ FORM_EDIT;
             echo '   <a href="?del=' . $module->index . '" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></a>';
         }
         echo '</td>';
-//        echo '</tr>'; break;
+        echo '</tr>';
     }
     echo '</table>';
 }
 ?>
-
+<script type="text/javascript">
+    window.onload = function()
+    {
+        var lnks = document.getElementsByClassName('apolink');
+        for(i = 0; i < lnks.length; i++) {
+            lnks[i].addEventListener('click', function (e) {
+                if( this.dataset.done === 'false' ) {
+                    window.location.href = 'index.php?edit=' + this.dataset.index;
+                }
+            });
+        }
+    };
+</script>
 </body>
 </html>
