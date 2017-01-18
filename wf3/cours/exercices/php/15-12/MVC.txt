@@ -1,0 +1,13 @@
+MVC - https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/organiser-son-code-selon-l-architecture-mvc
+Modèle Vue Controleur
+
+La Vue, c'est l'affichage, ce qui sera vu par l'utilisateur, donc le HTML. Il n'y a pas de données dans la Vue, seulement une structure.
+
+Le Controleur, c'est ce qui va gérer les interactions entre l'utilisateur et la Vue. Le Controleur écrit la Vue. Le Controleur appelle les fonctions du Modèle pour modifier des informations.
+
+Le Modèle, c'est la base de données et les fonctions qui interagissent avec celle-ci. Appelé par le Controleur, le Modèle va donc mettre à jour la base de données (insertion, update, delete, etc).
+
+index.php       -> controller
+inc             -> view
+libs            -> controller / model
+base de données -> model

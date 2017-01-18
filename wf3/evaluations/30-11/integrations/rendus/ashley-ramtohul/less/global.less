@@ -1,0 +1,293 @@
+// main: main.less
+
+  /*----------------------------/
+ // Contient le style global  //
+/*---------------------------*/
+html {
+    font-size: 62.5%;
+
+    body {
+        font: 1.4rem / 1.5 Arial, sans-serif;
+        color: @color-text; // #333
+        background-color: @color-theme-dark; // #061339
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        // Conteneur global de la page
+        #page {
+            
+            // Style global
+            a {
+                letter-spacing: .1rem;
+                text-decoration: none;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            
+            p {
+                margin-bottom: 1.8rem;
+            }
+            
+            h1, h2, legend, .navbar a {
+                font-family: 'Merienda', cursive;
+            }
+            
+            .wrapper,
+            .navbar p, // Top bar
+            {
+                max-width: 1150px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            
+            
+            // Top bar
+            .navbar {
+                text-align: left;
+                
+                a {
+                    color: @title-color-light; // #fff
+                    line-height: 5rem;
+                    font-size: 2.1rem;
+                }
+            }
+            
+            
+            // Header
+            header {
+                background:url('@{img-dir}background.jpg') 0 0 repeat-x scroll #B9CDFF;
+                
+                h1 {
+                    line-height: 18rem;
+                    font-size: 3.6rem;
+                    text-align: center;
+                    color: @title-color-light; // #fff
+                    text-shadow: .2rem .2rem .5rem #000;
+                }
+            }
+            
+            
+            // Contenu principal
+            main {
+                padding-top: 5rem;
+                background-color: #f1f1f1;
+                
+                & > .wrapper {
+                    
+                    overflow: hidden;
+                    
+                    &  > * {
+                        float: right;
+                    }
+                    
+                    
+                    // Formulaire
+                    form {
+                        width: 24%;
+                        padding: .9rem .9rem;
+                        margin-top: 5rem;
+                        margin-right: 2%;
+                        border:.1rem solid #e3e3e3;
+                        background-color: #f5f5f5;
+                        border-radius: .4rem;
+                        
+                        fieldset {
+                            
+                            position: relative;
+                            
+                            legend {
+                                font-size: 1.4rem;
+                                text-align: center;
+                                display: block;
+                                width: 100%;
+                                font-size: 2rem;
+                                line-height: 4.5rem;
+                                color: @title-color-dark; // 2F4073
+                                margin-bottom: 1rem;
+                                position: absolute;
+                                top: -7rem;
+                            }
+                            
+                            label {
+                                display: block;
+                                font-weight: bold;
+                                color: #000;
+                                line-height: 30px;
+                            }
+                            
+                            // Récupération du style des listes déroulantes de bootstrap
+                            select, textarea {
+                                display: block;
+                                width: 100%;
+                                height: 3rem;
+                                padding: .6rem 1.2rem;
+                                margin-bottom: 1rem;
+                                font-size: 1.4rem;
+                                line-height: 1.42857143;
+                                color: #555;
+                                background-color: #fff;
+                                background-image: none;
+                                border: .1rem solid #ccc;
+                                border-radius: .4rem;
+                                font-family: Arial, sans-serif;
+                                -webkit-box-shadow: inset 0 .1rem .1rem rgba(0, 0, 0, .075);
+                                        box-shadow: inset 0 .1rem .1rem rgba(0, 0, 0, .075);
+                                -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                                     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                                        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                            
+                                // Agissement lors le focus
+                                &:focus {
+                                    border-color: #66afe9;
+                                    outline: 0;
+                                    -webkit-box-shadow: inset 0 .1rem .1rem rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+                                          box-shadow: inset 0 .1rem .1rem rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+                                }
+                                
+                                &::-moz-placeholder {
+                                    color: #999;
+                                    opacity: 1;
+                                    font-family: Arial, sans-serif;
+                                }
+                                
+                                &:-ms-input-placeholder {
+                                    color: #999;
+                                    font-family: Arial, sans-serif;
+                                }
+                                
+                                &::-webkit-input-placeholder {
+                                    color: #999;
+                                    font-family: Arial, sans-serif;
+                                }
+                            }
+
+                            textarea {
+                                height: 21rem;
+                            }
+                            
+                            input[type=submit] {
+                                // Récupération code bootstrap
+                                display: block;
+                                width: 100%;
+                                padding: .6rem 1.2rem;
+                                margin-bottom: 1rem;
+                                font-size: 1.4rem;
+                                font-weight: 400;
+                                line-height: 1.42857143;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: middle;
+                                -ms-touch-action: manipulation;
+                                touch-action: manipulation;
+                                cursor: pointer;
+                                -webkit-user-select: none;
+                                -moz-user-select: none;
+                                -ms-user-select: none;
+                                user-select: none;
+                                background-image: none;
+                                border: .1rem solid transparent;
+                                border-radius: .4rem;
+                                color: #fff;
+                                background-color: #5cb85c;
+                                border-color: #4cae4c;
+                            }
+                            
+                            .error {
+                                border-color: #d40000;
+                            }
+                        }
+                        
+                        
+                        // En cas de validation OK du formulaire
+                        &.success {
+                            p {
+                                margin-top: 1.8rem;
+                                font-weight: bold;
+                                color: green;
+                                text-align: center;
+                            }
+                        }
+                    }
+                    
+                    // Slider
+                    .slider {
+                        width: 74%;
+                        
+                        .bx-caption {
+                            background: none;
+                            bottom: 1rem;
+                            font-size: 3rem;
+                            text-shadow: .2rem .2rem 0 #000;
+                            text-align: center;
+                        }
+                    }
+                }
+                 
+                
+                // Contenu descriptif
+                article {
+                    clear: both;
+                    background-color: #ddd;
+                    padding: 3.5rem 0 4rem;
+                    
+                    .wrapper {
+                        padding-right: 300px;
+                        position: relative;
+                        
+                        & > * {
+                            position: relative;
+                            z-index: 1;
+                        }
+                        
+                        h2 {
+                            font-size: 3.2rem;
+                            letter-spacing: -.1rem;
+                            color: @title-color-dark;
+                            margin-bottom: 1.8rem;
+                        }
+                        
+                        &::after {
+                            content:'';
+                            position: absolute;
+                            top: 50%;
+                            bottom: 0;
+                            right: 0;
+                            z-index: 0;
+                            width: 250px;
+                            height: 150px;
+                            background: url('@{img-dir}tete-chat.png') right center no-repeat scroll #7885A5;
+                            background-size: cover;
+                            transform: translate(0, -50%);
+                            transition: all .2s;
+                        }
+                        
+                        &:hover {
+                            &::after {
+                                background-color: @title-color-dark;
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+            // Bottom footer
+            .bottom-bar {
+                text-align: right;
+                
+                p {
+                    color: @title-color-light;
+                    margin: 0 .8rem;
+                    line-height: 3rem;
+                    font-size: 1.2rem;
+                }
+            }
+            
+        }
+
+    }
+}

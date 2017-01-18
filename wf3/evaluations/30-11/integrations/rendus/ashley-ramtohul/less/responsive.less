@@ -1,0 +1,63 @@
+// main: main.less
+
+  /*--------------------------------------/
+ // Contient les adaptations responsive //
+/*-------------------------------------*/
+
+html {
+
+    // Pour les écrans plus petit que 992px et plus grand que 768px
+    @media (max-width: @screen-size-medium ) {
+        body {
+            
+        }
+    }
+
+
+    // Pour les écrans plus petit que 768px
+    @media (max-width: @screen-size-small ) {
+        body {
+            #page {
+                
+                .wrapper {
+                    padding: 0 1rem;
+                }
+                
+                .navbar {
+                    a {
+                        margin-left: 1rem;
+                    }
+                }
+                
+                header {
+                    h1 {
+                        line-height: 1.5;
+                        padding: 7.5rem 0;
+                    }
+                }
+                main {
+                    & > .wrapper {
+                        form {
+                            width: 100%;
+                        }
+                        .slider {
+                            width: 100%;
+                        }
+                    }
+                    
+                    article {
+                        .wrapper{
+                            padding: 0 1rem 20rem;
+                            margin-bottom: 5rem;
+                            &::after {
+                                left: 50%;
+                                top: inherit;
+                                transform: translate(-50%, 0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

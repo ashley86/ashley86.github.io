@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+
+		<meta charset="utf-8" />
+
+		<!-- Interdit IE d'utiliser le mode de compatibilite -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+		<!-- Definition de regles pour les appareils mobiles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Police personnalisee -->
+		<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet" />
+		
+		<!-- Bootstrap : Derniere version, minifiee -->
+<!--		<link rel="stylesheet" href="assets/css/bootstrap.min.css">-->
+
+		<!-- Ma feuille de style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.css" media="screen" />
+
+
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> <!-- A REMPLIR -->
+
+
+		<meta name="description" content="" /> <!-- A REMPLIR -->
+
+		<title>OhMyCats !</title>
+
+	</head>
+
+	<body>
+        
+        <!-- Conteneur global de la page -->
+        <div id="page">
+            
+            <div class="navbar">
+                <p><a href="index.html">OhMyCats !</a></p>
+            </div>
+            
+            <!-- En-tete -->
+            <header>
+               
+                <div class="wrapper">
+                    <!-- Titre principal de la page -->
+                    <h1>Adoptez un chat trop bon !</h1>
+                </div>
+                
+            </header>
+            
+            <!-- Contenu principal -->
+            <main>
+                
+                <div class="wrapper">
+
+                    <!-- Carousel -->
+                    <div class="slider">
+                        <ul class="bxslider">
+                            <li><img src="assets/img/slider/chat-sushi.jpg" alt="Sushi - un chat" title="Sushi" /></li>
+                            <li><img src="assets/img/slider/chat-maki.jpg" alt="Maki - un chat" title="Maki" /></li>
+                            <li><img src="assets/img/slider/chat-sashimi.jpg" alt="Sashimi - un chat" title="Sashimi" /></li>
+                            <li><img src="assets/img/slider/chat-yakitori.jpg" alt="Yakitori - un chat" title="Yakitori" /></li>
+                            <li><img src="assets/img/slider/chat-onigri.jpg" alt="Onigri - un chat" title="Onigri" /></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Formulaire -->
+                    <form action="adopt.php" method="post" name="adoptCat">
+
+                        <fieldset>
+
+                            <legend>Les chats à adopter</legend>
+
+                            <!-- Chats disponibles -->
+                            <label for="selectCat">Choix du chat :</label>
+                            <select name="selectCat" id="selectCat">
+                                <option value="">-- Sélectionner --</option>
+                                <option value="sushi">Sushi</option>
+                                <option value="maki">Maki</option>
+                                <option value="sashimi">Sashimi</option>
+                                <option value="yakitori">Yakitori</option>
+                                <option value="onigri">Onigri</option>
+                            </select>
+
+                            <!-- Argumentation -->
+                            <label for="arguments">Raison d'adoption</label>
+                            <textarea name="arguments" id="arguments" placeholder="Saisissez ici les raisons pour lesquelles vous souhaitez adopter ce chat..."></textarea>
+
+                            <!-- Valider le formulaire -->
+                            <input type="submit" value="Envoyer" />
+
+                        </fieldset>
+
+                    </form>
+                    
+                </div>
+
+
+                <!-- Contenu descriptif -->
+                <article>
+                    <div class="wrapper">
+                       
+                        <h2>Nos chats à adopter...</h2>
+
+                        <p>Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa decreverim, que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem quindecim dierum decrevi sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non erat exigua eadem gratulatio quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.</p>
+
+                        <p>Haec igitur prima lex amicitiae sanciatur, ut ab amicis honesta petamus, amicorum causa honesta faciamus, ne exspectemus quidem, dum rogemur; studium semper adsit, cunctatio absit; consilium vero dare audeamus libere. Plurimum in amicitia amicorum bene suadentium valeat auctoritas, eaque et adhibeatur ad monendum non modo aperte sed etiam acriter, si res postulabit, et adhibitae pareatur.</p>
+                        
+                    </div>
+                </article>
+            </main>
+            
+            <!-- bottom bar -->
+            <div class="bottom-bar">
+                <p>&copy; OhMyCats</p>
+            </div>
+            
+        </div>
+        
+        <!-- Inclusion jQuery -->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <!-- bxSlider Javascript file -->
+        <script src="assets/js/jquery.bxslider.min.js"></script>
+        <!-- bxSlider CSS file -->
+        <link href="assets/css/jquery.bxslider.css" rel="stylesheet" />
+        <!-- Inclusion JS -->
+        <script type="text/javascript" src="assets/js/script.js"></script>
+
+    </body>
+    
+</html>
