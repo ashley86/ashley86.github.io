@@ -25,12 +25,12 @@
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <td>{{ $product->id_product }}</td>
-                            <td>{{ Carbon\Carbon::parse($product->date_arrivee)->format('d/m/Y') }}</td>
-                            <td>{{ Carbon\Carbon::parse($product->date_depart)->format('d/m/Y') }}</td>
-                            <td>{{ $product->id_room }} - Salle cézanne <br/> <img src="images/{{ $product->id_room }}.jpg" alt="Salle Cézanne" /></td>
-                            <td>{{ $product->prix }} &euro;</td>
-                            <td>{{ $product->etat }}</td>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ Carbon\Carbon::parse($product->arrived_date)->format('d/m/Y') }}</td>
+                            <td>{{ Carbon\Carbon::parse($product->left_date)->format('d/m/Y') }}</td>
+                            <td>{{ $product->room_id }} - {{ $product->room->title }} <br/> <img src="medias/salles/{{ $product->room_id }}.jpg" alt="{{ $product->room->title }}" width="150" /></td>
+                            <td>{{ $product->price }} &euro;</td>
+                            <td>{{ $product->state }}</td>
                             <td>
                                 <a href="#" title="Détails"><i class="fa fa-search" aria-hidden="true"></i>
                                 </a>
@@ -43,7 +43,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                        {{var_dump($products)}}
+{{--                        {{var_dump($products)}}--}}
                 @endif
             </div>
         </div>

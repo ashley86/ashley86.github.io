@@ -166,6 +166,22 @@ body {
 #bigImage {
     display: none;
     text-align: center;
+    margin-bottom: 30px;
+}
+
+#bigImage a {
+    font: bold 28px/1em cursive, sans-serif;
+    margin: auto 10px;
+    transition: color 0.2s;
+}
+#bigImage a:hover {
+    text-decoration: none;
+    color: #d40000;
+}
+
+#bigImage img {
+    vertical-align: middle;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
 #errorMsg {

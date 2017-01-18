@@ -15,4 +15,4 @@
     return view('admin', ['appName' => 'Lokisalle']);
 });*/
 
-Route::get('/admin', 'ProductsController@show');
+Route::get('admin', 'ProductsController@show');
