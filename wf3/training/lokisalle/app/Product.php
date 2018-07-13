@@ -4,10 +4,10 @@ namespace Lokisalle;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Products extends Model
+class Product extends Model
 {
     public function room()
     {
-        return $this->belongsTo( Rooms::class );
+        return $this->belongsTo( Room::class );
     }
 }

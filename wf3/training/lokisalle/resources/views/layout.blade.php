@@ -8,19 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Location de salle... WF3 - Ash">
 
-    <title>@yield( 'title' ) | {{ $appName }}</title>
+    <title>@yield( 'title', '') | {{ $appName }}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="/css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     @yield('head')
 
@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">{{ $appName  }}</a>
+                <a class="navbar-brand" href="/admin">{{ $appName }}</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -153,12 +153,53 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#products"><i class="fa fa-fw fa-arrows-v"></i> Produits <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="products" class="collapse">
+                        <a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="{{ Request::is('*admin/rooms*') ? 'active' : '' }}">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#rooms"><i class="fa fa-fw fa-inbox"></i> Salles <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="rooms" class="collapse {{ Request::is('*admin/rooms*') ? 'in' : '' }}">
+                            <li>
+                                <a href="{{ route('admin::rooms::home') }}">Lister</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin::rooms::add') }}">Ajouter</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{{ Request::is('*admin/products*') ? 'active' : '' }}">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#products"><i class="glyphicon glyphicon-flash"></i> Produits <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="products" class="collapse {{ Request::is('*products*') ? 'in' : '' }}">
+                            <li>
+                                <a href="{{ route('admin::products::home') }}">Lister</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin::products::add') }}">Ajouter</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{{ Request::is('*admin/members*') ? 'active' : '' }}">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#members"><i class="fa fa-fw fa-user"></i> Membres <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="members" class="collapse {{ Request::is('*members*') ? 'in' : '' }}">
+                            <li>
+                                <a href="#">Lister</a>
+                            </li>
+                            <li>
+                                <a href="#">Ajouter</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{{ Request::is('*admin/reviews*') ? 'active' : '' }}">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#reviews"><i class="fa fa-fw fa-comment"></i> Avis <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="reviews" class="collapse {{ Request::is('*reviews*') ? 'in' : '' }}">
+                            <li>
+                                <a href="#">Lister</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="{{ Request::is('*admin/orders*') ? 'active' : '' }}">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#orders"><i class="glyphicon glyphicon-list"></i> Commandes <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="orders" class="collapse {{ Request::is('*orders*') ? 'in' : '' }}">
                             <li>
                                 <a href="#">Lister</a>
                             </li>
@@ -168,37 +209,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#members"><i class="fa fa-fw fa-arrows-v"></i> Membres <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="members" class="collapse">
-                            <li>
-                                <a href="#">Lister</a>
-                            </li>
-                            <li>
-                                <a href="#">Ajouter</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#reviews"><i class="fa fa-fw fa-arrows-v"></i> Avis <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="reviews" class="collapse">
-                            <li>
-                                <a href="#">Lister</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#orders"><i class="fa fa-fw fa-arrows-v"></i> Commandes <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="orders" class="collapse">
-                            <li>
-                                <a href="#">Lister</a>
-                            </li>
-                            <li>
-                                <a href="#">Ajouter</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Déconnexion</a>
+                        <a href="#"><i class="glyphicon glyphicon-remove-sign"></i> Déconnexion</a>
                     </li>
                 </ul>
             </div>
@@ -213,12 +224,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            @yield( 'title' )
+                            @yield( 'title', '' )
                         </h1>
                         <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
                             @yield( 'breadcrumb' )
                         </ol>
                     </div>
@@ -237,15 +245,15 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
+    {{--<script src="/js/plugins/morris/raphael.min.js"></script>--}}
+    {{--<script src="/js/plugins/morris/morris.min.js"></script>--}}
+    {{--<script src="/js/plugins/morris/morris-data.js"></script>--}}
 
     @yield('footer')
 

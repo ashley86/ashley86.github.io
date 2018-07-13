@@ -1,8 +1,5 @@
 @extends( 'layout' )
 
-@section( 'title' )
-    Admin
-@stop
 
 @section( 'content' )
     <div class="row">
@@ -28,15 +25,15 @@
                             <td>{{ $product->id }}</td>
                             <td>{{ Carbon\Carbon::parse($product->arrived_date)->format('d/m/Y') }}</td>
                             <td>{{ Carbon\Carbon::parse($product->left_date)->format('d/m/Y') }}</td>
-                            <td>{{ $product->room_id }} - {{ $product->room->title }} <br/> <img src="medias/salles/{{ $product->room_id }}.jpg" alt="{{ $product->room->title }}" width="150" /></td>
+                            <td>{{ $product->room_id }} - {{ $product->room->title }} <br/> <img src="/medias/salles/{{ $product->room_id }}.jpg" alt="{{ $product->room->title }}" width="150" /></td>
                             <td>{{ $product->price }} &euro;</td>
                             <td>{{ $product->state }}</td>
                             <td>
-                                <a href="#" title="Détails"><i class="fa fa-search" aria-hidden="true"></i>
+                                <a href="/admin/products/{{ $product->id  }}" title="Détails"><i class="fa fa-search" aria-hidden="true"></i>
                                 </a>
-                                <a href="#" title="Editer"><i class="fa fa-pencil" aria-hidden="true"></i>
+                                <a href="/admin/products/{{ $product->id  }}/edit" title="Editer"><i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
-                                <a href="#" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i>
+                                <a href="/admin/products/{{ $product->id  }}/delete" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
                         </tr>
